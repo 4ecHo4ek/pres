@@ -1,7 +1,5 @@
 ﻿Public Class Form1
 
-    ' Dim unit As Unit
-
     Structure TmpParam
         Dim l As Double ' длина соед канала
         Dim d As Double ' димаетр соед канала
@@ -13,15 +11,14 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim tmp = New TmpParam
         Dim t As Double
-        'вносим значения в Unit и изменить все связанное с Data '
         Dim unit = MakeUnitFully()
         Dim data = CreateData()
         Dim p = data.pressureBegin
         Dim pressure(data.tEnd) As Decimal ' вероятно убирать
         Dim time(data.tEnd) As Double ' вероятно убирать
 
-        '  pressure(0) = p может и не понадобится'
-        '  time(0) = 0  может и не понадобится'
+        '  pressure(0) = p может и не понадобится
+        '  time(0) = 0  может и не понадобится
         For t = 1 To data.tEnd
             Select Case t
                 Case 0
@@ -78,7 +75,8 @@
         Dim sEf As Decimal ' часть с эффективной скоростью откачки
         Dim q As Decimal ' часть с газовыделениями
 
-        sEf = SEffectiveWithOtherParts(tmp)
+        sEf = SEffectiveWithOtherParts(tmp) / unit.FindAllValume
+
 
         Select Case tmp.t
             Case tmp.t < data.tStartHeatRising
@@ -92,6 +90,7 @@
             Case tmp.t <= data.tKatodDisactivate
                 'полное охлаждение системы'
         End Select
+        ' тут ищем Q от всех элементов и складываем
 
 
         Return (sEf + q)
