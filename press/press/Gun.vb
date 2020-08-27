@@ -1,4 +1,4 @@
-﻿Public Class Channel
+﻿Public Class Gun
     Inherits Element
 
 End Class
