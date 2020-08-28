@@ -5,6 +5,7 @@
     Public d2 As Double ' диаметр большого насоса
     Public temperatureBeforeHeat As Double ' темпиратура до нагрева
     Public temperatureAfterHeat As Double ' макс темпиратура нагрева
+    Public alpha As Double ' параметр альфа (порядка -2000)
     Public s1 As Double ' скорость откачки малого насоса
     Public s2 As Double ' скорость откачки большого насоса
     Public pressureBegin As Double ' начальное давление
