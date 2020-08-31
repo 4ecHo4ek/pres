@@ -14,6 +14,7 @@
     Public tStartHeatRising As Double ' время включения печи
     Public tEndHeatRising As Double ' конец набора темпиратуры
     Public tKatodActivate As Double ' время вкл катода
+    Public tKatodActive As Double ' время когда катод нагрет
     Public tEndHeating As Double ' отключение темпиратуры
     Public tKatodDisactivate As Double ' отключение катода
     Public tEnd As Double ' окончание откачки

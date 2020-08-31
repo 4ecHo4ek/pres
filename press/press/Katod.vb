@@ -1,6 +1,6 @@
 ﻿Public Class Katod
     Inherits Element
 
-    Dim temperatureMax As Double
-    Dim tRise As Double
+    Public temperatureMax As Double
+    Public tRise As Double
 End Class

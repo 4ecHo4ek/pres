@@ -24,40 +24,118 @@
         'меняется ли оно?'
     End Structure
 
+    Function setData() As Data
+        Dim data = New Data
+        data.alpha = -2000
+        data.d1 = 0.5
+        data.d2 = 0.5
+        data.l1 = 0.5
+        data.l2 = 0.5
+        data.pressureBegin = 10000
+        data.qFlows = 10 ^ -10
+        data.s1 = 25 * 10 ^ -3
+        data.s2 = 33 * 10 ^ -1
+        data.t1 = 1500
+        data.temperatureBeforeHeat = 293
+        data.temperatureAfterHeat = 793
+        data.tStartHeatRising = 3000
+        data.tEndHeatRising = 5000
+        data.tKatodActivate = 7000
+        data.tKatodActive = 8000
+        data.tEndHeating = 10000
+        data.tKatodDisactivate = 11000
+        data.tEnd = 13000
+        Return data
+    End Function
+
+    Function setUnit() As Unit
+        Dim unit = New Unit
+        Dim katod = New Katod
+        Dim gun = New Gun
+        Dim body = New Body
+        Dim channel = New Channel
+        Dim drain = New Drain
+        unit.body = body
+        unit.channel = channel
+        unit.drain = drain
+        unit.gun = gun
+        unit.katod = katod
+        unit.body.qBegin = 10 ^ -5
+        unit.body.qEnd = 10 ^ -4
+        unit.body.qSumAfterHeat = 10 ^ -13
+        unit.body.qSumBeforeHeat = 10 ^ -10
+        unit.body.square = 1
+        unit.body.volume = 1
+        unit.channel.qBegin = 10 ^ -5
+        unit.channel.square = 10 ^ -4
+        unit.channel.volume = 1
+        unit.channel.square = 1
+        unit.drain.qBegin = 10 ^ -5
+        unit.drain.square = 10 ^ -4
+        unit.drain.volume = 1
+        unit.drain.square = 1
+        unit.gun.qBegin = 10 ^ -5
+        unit.gun.square = 10 ^ -4
+        unit.gun.volume = 1
+        unit.gun.square = 1
+        unit.katod.qBegin = 10 ^ -5
+        unit.katod.square = 10 ^ -4
+        unit.katod.volume = 1
+        unit.katod.square = 1
+        unit.katod.temperatureMax = 1400
+        unit.katod.tRise = 600
+        unit.gun.temperatureMax = 1400
+        unit.gun.tRise = 600
+        Return unit
+    End Function
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim tmp = New TmpParam
         Dim t As Double
-        Dim unit = MakeUnitFully()
-        Dim data = CreateData()
-        Dim p = data.pressureBegin
-        Dim pressure(data.tEnd) As Decimal ' вероятно убирать
-        Dim time(data.tEnd) As Double ' вероятно убирать
+        Dim unit As Unit
+        unit = setUnit()
+        Dim data = setData()
 
+        Dim pressure(data.tEnd + 1) As Decimal ' вероятно убирать
+        Dim time(data.tEnd + 1) As Double ' вероятно убирать
+
+        tmp.p = data.pressureBegin
         '  pressure(0) = p может и не понадобится
         '  time(0) = 0  может и не понадобится
+
         For t = 1 To data.tEnd
-            Select Case t
-                Case 0
-                    tmp.d = data.d1
-                    tmp.l = data.l1
-                    tmp.s = data.s1
-                    tmp.temperature = data.temperatureBeforeHeat
-                Case t = data.t1
-                    tmp.d = data.d2
-                    tmp.l = data.l2
-                    tmp.s = data.s2
-                Case t = data.tEndHeatRising
-                    tmp.temperature = data.temperatureAfterHeat
-            End Select
             tmp.t = t
+
+            If tmp.t < data.t1 Then ' перепроверить тут
+                tmp.d = data.d1
+                tmp.l = data.l1
+                tmp.s = data.s1
+                tmp.temperature = data.temperatureBeforeHeat
+            ElseIf tmp.t >= data.t1 And tmp.t < data.tEndHeatRising Then
+                tmp.d = data.d2
+                tmp.l = data.l2
+                tmp.s = data.s2
+            ElseIf tmp.t >= data.tEndHeatRising And tmp.t < data.tEndHeating Then
+                tmp.temperature = data.temperatureAfterHeat
+            Else
+                Dim tTmp = data.temperatureAfterHeat
+                data.temperatureAfterHeat = data.temperatureBeforeHeat
+                data.temperatureBeforeHeat = tTmp
+            End If
+
             ' тут надо что то сделать с h для рунгекутта'
             tmp.p += StartCalculatePressureWithRungeKutt(tmp, data, unit)
             pressure(t) = tmp.p
-            time(t) = t
+            time(t) = tmp.t
+
+            'удалить
+            If tmp.t Mod 1000 = 0 Then
+                '     Console.WriteLine(tmp.p)
+            End If
+
         Next t
 
-
-
+        MsgBox(pressure(t))
     End Sub
 
     Function CreateData() As Data
@@ -86,7 +164,6 @@
         tmp.p += h * k3
         k4 = CalculatePressureWithRungeKutt(tmp, data, unit)
         pressure = h * (k1 + 2 * k2 + 2 * k3 + k4) / 6
-
         Return pressure
     End Function
 
@@ -94,38 +171,105 @@
         Dim sEf As Decimal ' часть с эффективной скоростью откачки
         Dim q As Decimal = 0 ' часть с газовыделениями
         Dim changingParams = New ChangingParams
-        Dim constFlag As Boolean ' если флаг, значит константа, иначе переменная
-        sEf = SEffectiveWithOtherParts(tmp) / unit.FindAllValume
+        Dim flowParam As Decimal ' пропускание щелями
+        sEf = SEffectiveWithOtherParts(tmp)
 
-        'для всех элементов кроме корпуса пропускающая способность течей = 0'
-        'и скорей всего и объем будет только тела указан '
-
-        'заполнение структур данных для каждого объекта???'
-
+        Select Case tmp.t
+            Case tmp.t < data.tEndHeating
+                changingParams.qSumBefore = unit.body.qSumBeforeHeat
+                changingParams.qSumAfter = unit.body.qSumAfterHeat
+            Case tmp.t >= data.tEndHeating
+                changingParams.qSumBefore = unit.body.qSumAfterHeat
+                changingParams.qSumAfter = unit.body.qSumBeforeHeat
+        End Select
 
         Select Case tmp.t
             Case tmp.t < data.tStartHeatRising ' значения до нагрева
-                constFlag = True
-                ' так для каждого из блоков для каждого времени '
-                ' не забыть про особое внимание катоду'
-                changingParams = SetStructForBody(changingParams, data, unit, constFlag)
+                changingParams = SetStructForElementConst(changingParams, data, unit.body)
                 q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.channel)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.drain)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.gun)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.katod)
+                q += FlowConstant(tmp, data, changingParams)
+                flowParam = FlowParameterWhenConst(tmp, data, changingParams)
             Case (tmp.t >= data.tStartHeatRising) And (tmp.t <= data.tEndHeatRising) ' время нагрева камеры
-                'первый набор темпиратуры'
+                changingParams = SetStructForElementDinam(changingParams, data, unit.body)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementDinam(changingParams, data, unit.channel)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementDinam(changingParams, data, unit.drain)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementDinam(changingParams, data, unit.gun)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementDinam(changingParams, data, unit.katod)
+                q += FlowConstant(tmp, data, changingParams)
+                flowParam = FlowParameterWhenDimanic(tmp, data, changingParams)
             Case tmp.t < data.tKatodActivate ' время до включения катода (до его доп нагрева)
-                'разогрев катода'
-            Case tmp.t >= data.tEndHeating ' время до полного отключения тепла (остывание)
-                'отключаем нагрев, следим за катодом и его областью'
-            Case tmp.t <= data.tKatodDisactivate ' отклчюение катода
-                'полное охлаждение системы'
+                changingParams = SetStructForElementConst(changingParams, data, unit.body)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.channel)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.drain)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.gun)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.katod)
+                q += FlowConstant(tmp, data, changingParams)
+                flowParam = FlowParameterWhenConst(tmp, data, changingParams)
+            Case tmp.t >= data.tKatodActivate And tmp.t < data.tEndHeating ' промежуток времени до полной остановки подогрева камеры
+                changingParams = SetStructForElementConst(changingParams, data, unit.body)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.channel)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.drain)
+                q += FlowConstant(tmp, data, changingParams)
+                flowParam = FlowParameterWhenConst(tmp, data, changingParams)
+            Case tmp.t < data.tEnd ' оставшееся время остывания
+                changingParams = SetStructForElementDinam(changingParams, data, unit.body)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementDinam(changingParams, data, unit.channel)
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementDinam(changingParams, data, unit.drain)
+                q += FlowConstant(tmp, data, changingParams)
+                flowParam = FlowParameterWhenDimanic(tmp, data, changingParams)
         End Select
-        ' тут ищем Q от всех элементов и складываем
-
-
-        Return (sEf + q)
+        'начиная с прогрева катода, он и пушка уходят в отдельную ветку
+        Select Case tmp.t
+            Case tmp.t >= data.tKatodActivate And tmp.t <= data.tKatodActive ' разогрев катода до макс
+                changingParams = SetStructForElementDinam(changingParams, data, unit.gun)
+                changingParams.temperatureBegin = data.temperatureAfterHeat * 0.9
+                changingParams.temperatureAfter = unit.katod.temperatureMax
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementDinam(changingParams, data, unit.katod)
+                changingParams.temperatureBegin = data.temperatureAfterHeat
+                changingParams.temperatureAfter = unit.katod.temperatureMax
+                q += FlowConstant(tmp, data, changingParams)
+            Case tmp.t > data.tKatodActive And tmp.t <= data.tKatodDisactivate
+                changingParams = SetStructForElementConst(changingParams, data, unit.gun)
+                changingParams.temperatureBegin = unit.katod.temperatureMax
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementConst(changingParams, data, unit.katod)
+                changingParams.temperatureBegin = unit.katod.temperatureMax
+                q += FlowConstant(tmp, data, changingParams)
+            Case tmp.t > data.tKatodDisactivate
+                changingParams = SetStructForElementDinam(changingParams, data, unit.gun)
+                changingParams.temperatureBegin = unit.katod.temperatureMax * 0.9
+                changingParams.temperatureAfter = data.temperatureAfterHeat
+                q += FlowConstant(tmp, data, changingParams)
+                changingParams = SetStructForElementDinam(changingParams, data, unit.katod)
+                changingParams.temperatureBegin = unit.katod.temperatureMax * 0.9
+                changingParams.temperatureAfter = data.temperatureAfterHeat
+                q += FlowConstant(tmp, data, changingParams)
+        End Select
+        'здесь пропускающую способность течей указываем только для корпуса'
+        Return (sEf + q + flowParam) / unit.body.volume
     End Function
 
-    Function SetStructForBody(ByVal tmp As ChangingParams, ByVal data As Data, ByVal unit As Unit, ByVal flag As Boolean) As ChangingParams ' вносим в структуру данные для последующего расчета для каждого компанента
+    Function SetStructForBody(ByVal tmp As ChangingParams, ByVal data As Data, ByVal unit As Unit, ByVal flag As Boolean) As ChangingParams ' если ниже работает - удалить
 
         ' если это константа, то заполнябтся параметры с Before'
         tmp.volume = unit.body.volume
@@ -145,95 +289,40 @@
         Return tmp
     End Function
 
-    Function SetStructForChannel(ByVal tmp As ChangingParams, ByVal data As Data, ByVal unit As Unit, ByVal flag As Boolean) As ChangingParams ' вносим в структуру данные для последующего расчета для каждого компанента
-
+    Function SetStructForElementConst(ByVal tmp As ChangingParams, ByVal data As Data, ByVal unit As Element) As ChangingParams ' вносим в структуру данные для последующего расчета для каждого компанента
         ' если это константа, то заполнябтся параметры с Before'
-        tmp.volume = unit.channel.volume
-        tmp.square = unit.channel.square
-        If flag Then
-            tmp.kBeforeHeat = unit.channel.qBegin
-            tmp.qSumBefore = unit.channel.qSumBeforeHeat
-        Else
-            tmp.kBeforeHeat = unit.channel.qBegin
-            tmp.kAfterHeat = unit.channel.qEnd
-            tmp.qSumBefore = unit.channel.qSumBeforeHeat
-            tmp.qSumAfter = unit.channel.qSumAfterHeat
-            tmp.temperatureBegin = data.temperatureBeforeHeat
-            tmp.temperatureAfter = data.temperatureAfterHeat
-        End If
-
+        tmp.volume = unit.volume
+        tmp.square = unit.square
+        tmp.kBeforeHeat = unit.qBegin
+        tmp.temperatureBegin = data.temperatureBeforeHeat
         Return tmp
     End Function
 
-    Function SetStructForDrain(ByVal tmp As ChangingParams, ByVal data As Data, ByVal unit As Unit, ByVal flag As Boolean) As ChangingParams ' вносим в структуру данные для последующего расчета для каждого компанента
-
-        ' если это константа, то заполнябтся параметры с Before'
-        tmp.volume = unit.drain.volume
-        tmp.square = unit.drain.square
-        If flag Then
-            tmp.kBeforeHeat = unit.drain.qBegin
-            tmp.qSumBefore = unit.drain.qSumBeforeHeat
-        Else
-            tmp.kBeforeHeat = unit.drain.qBegin
-            tmp.kAfterHeat = unit.drain.qEnd
-            tmp.qSumBefore = unit.drain.qSumBeforeHeat
-            tmp.qSumAfter = unit.drain.qSumAfterHeat
-            tmp.temperatureBegin = data.temperatureBeforeHeat
-            tmp.temperatureAfter = data.temperatureAfterHeat
-        End If
-
+    Function SetStructForElementDinam(ByVal tmp As ChangingParams, ByVal data As Data, ByVal unit As Element) As ChangingParams
+        tmp.volume = unit.volume
+        tmp.square = unit.square
+        tmp.kBeforeHeat = unit.qBegin
+        tmp.kAfterHeat = unit.qEnd
         Return tmp
     End Function
 
-    Function SetStructForGun(ByVal tmp As ChangingParams, ByVal data As Data, ByVal unit As Unit, ByVal flag As Boolean) As ChangingParams ' вносим в структуру данные для последующего расчета для каждого компанента
-
-        ' если это константа, то заполнябтся параметры с Before'
-        tmp.volume = unit.gun.volume
-        tmp.square = unit.gun.square
-        If flag Then
-            tmp.kBeforeHeat = unit.gun.qBegin
-            tmp.qSumBefore = unit.gun.qSumBeforeHeat
-        Else
-            tmp.kBeforeHeat = unit.gun.qBegin
-            tmp.kAfterHeat = unit.gun.qEnd
-            tmp.qSumBefore = unit.gun.qSumBeforeHeat
-            tmp.qSumAfter = unit.gun.qSumAfterHeat
-            tmp.temperatureBegin = data.temperatureBeforeHeat
-            tmp.temperatureAfter = data.temperatureAfterHeat
-        End If
-
-        Return tmp
+    Function FlowParameterWhenConst(ByVal tmp As TmpParam, ByVal data As Data, ByVal unit As ChangingParams) As Decimal
+        Dim flowParam = unit.qSumBefore * (data.pressureBegin - tmp.p)
+        Return flowParam
     End Function
 
-    Function SetStructForKatod(ByVal tmp As ChangingParams, ByVal data As Data, ByVal unit As Unit, ByVal flag As Boolean) As ChangingParams ' вносим в структуру данные для последующего расчета для каждого компанента
-
-        ' если это константа, то заполнябтся параметры с Before'
-        tmp.volume = unit.katod.volume
-        tmp.square = unit.katod.square
-        If flag Then
-            tmp.kBeforeHeat = unit.katod.qBegin
-            tmp.qSumBefore = unit.katod.qSumBeforeHeat
-        Else
-            tmp.kBeforeHeat = unit.katod.qBegin
-            tmp.kAfterHeat = unit.katod.qEnd
-            tmp.qSumBefore = unit.katod.qSumBeforeHeat
-            tmp.qSumAfter = unit.katod.qSumAfterHeat
-            tmp.temperatureBegin = data.temperatureBeforeHeat
-            tmp.temperatureAfter = data.temperatureAfterHeat
-        End If
-
-        Return tmp
+    Function FlowParameterWhenDimanic(ByVal tmp As TmpParam, ByVal data As Data, ByVal unit As ChangingParams) As Decimal
+        Dim qSumKoef = ((unit.qSumAfter - unit.kBeforeHeat) * (tmp.t - unit.timeEnd) / (unit.timeEnd - unit.timeBegin)) * (data.pressureBegin - tmp.p)
+        Return qSumKoef
     End Function
 
     Function FlowConstant(ByVal tmp As TmpParam, ByVal data As Data, ByVal unit As ChangingParams) As Decimal
         Dim constParam As Decimal
         Dim answer As Decimal
         Dim param1 = unit.square * unit.q * unit.kBeforeHeat
-        Dim flowParam = unit.qSumBefore * (data.pressureBegin - tmp.p)
 
         constParam = Math.E ^ (data.alpha * ((1 / tmp.temperature) - 1 / 293))
-        answer = (param1 * constParam * Math.E ^ (-unit.kBeforeHeat * tmp.t * constParam) + flowParam) * unit.volume
-
+        answer = param1 * constParam * Math.E ^ (-unit.kBeforeHeat * tmp.t * constParam) * unit.volume
         Return answer
     End Function
 
@@ -242,11 +331,9 @@
         Dim tempParam = Math.E ^ (data.alpha * (1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) / (unit.timeEnd - unit.timeBegin) *
                         (tmp.t - unit.timeBegin)) ^ 2 - 1 / 293))
         Dim koefParam = unit.kBeforeHeat + (unit.kAfterHeat - unit.kBeforeHeat) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin)
-        Dim qSumKoef = ((unit.qSumAfter - unit.kBeforeHeat) * (tmp.t - unit.timeEnd) / (unit.timeEnd - unit.timeBegin)) * (data.pressureBegin - tmp.p)
         Dim dinamParam = unit.square * unit.q * koefParam * tempParam
 
-        answer = dinamParam * Math.E ^ (-qSumKoef * tmp.t * tempParam) + qSumKoef 'тут быть внимательней со стеменью в tempParam, тут была -2'
-
+        answer = dinamParam * Math.E ^ (-koefParam * tmp.t * tempParam) 'тут быть внимательней со стеменью в tempParam, тут была -2'
         Return answer
     End Function
 
@@ -261,7 +348,10 @@
         sEf = (tmp.s * ((k1 * tmp.p * (tmp.d * k2) / tmp.l) + (121 * k2 / tmp.l)) * koef) /
             (tmp.s + ((k1 * tmp.p * (tmp.d * k2) / tmp.l) + (121 * k2 / tmp.l) * koef))
         f = (-1) * tmp.p * sEf
-
+        'удалить
+        If tmp.t Mod 1000 = 0 Then
+            Console.WriteLine(f)
+        End If
         Return f
     End Function
 End Class

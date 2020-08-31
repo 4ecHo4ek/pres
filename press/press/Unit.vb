@@ -4,10 +4,4 @@
     Public drain As Drain
     Public gun As Gun
     Public katod As Katod
-
-    Public Function FindAllValume() As Double
-        body = New Body
-
-        Return body.volume
-    End Function
 End Class
