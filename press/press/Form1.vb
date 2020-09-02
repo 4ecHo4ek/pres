@@ -54,12 +54,6 @@
             tmp.p += StartCalculatePressureWithRungeKutt(tmp, data, unit)
             pressure(t) = tmp.p
             time(t) = t
-
-            'удалить
-            If tmp.p < 0 Then
-                '  Console.WriteLine(tmp.p)
-            End If
-
         Next t
 
 
@@ -73,19 +67,19 @@
                 g.DrawLine(Pens.Red, CSng(60 + te * time(i)), CSng(60 + pe * (Math.Log(data.pressureBegin) - Math.Log(pressure(i)))),
                  CSng(60 + te * time(i + 1)), CSng(60 + pe * (Math.Log(data.pressureBegin) - Math.Log(pressure(i + 1)))))
             Else
-                g.DrawLine(Pens.Green, CSng(20 + te * time(i)), CSng(50 + pe * (Math.Log(data.pressureBegin) - Math.Log(-pressure(i)))),
+                g.DrawLine(Pens.Green, CSng(60 + te * time(i)), CSng(60 + pe * (Math.Log(data.pressureBegin) - Math.Log(-pressure(i)))),
                  CSng(60 + te * time(i + 1)), CSng(60 + pe * (Math.Log(data.pressureBegin) - Math.Log(-pressure(i + 1)))))
             End If
         Next i
-        ' g.DrawLine(Pens.Black, CSng(20 + te * data.t1), CSng(0), CSng(20 + te * data.t1), 800)
-        ' g.DrawLine(Pens.Brown, CSng(20 + te * data.tStartHeatRising), CSng(0), CSng(20 + te * data.tStartHeatRising), 800)
-        '  g.DrawLine(Pens.Gray, CSng(20 + te * data.tEndHeatRising), CSng(0), CSng(20 + te * data.tEndHeatRising), 800)
-        '  g.DrawLine(Pens.Yellow, CSng(20 + te * data.tKatodActivate), CSng(0), CSng(20 + te * data.tKatodActivate), 800)
-        ' g.DrawLine(Pens.Pink, CSng(20 + te * data.tKatodActive), CSng(0), CSng(20 + te * data.tKatodActive), 800)
-        ' g.DrawLine(Pens.Gold, CSng(20 + te * data.tEndHeating), CSng(0), CSng(20 + te * data.tEndHeating), 800)
-        ' g.DrawLine(Pens.Indigo, CSng(20 + te * data.tKatodDisactivate), CSng(0), CSng(20 + te * data.tKatodDisactivate), 800)
-        '  g.DrawLine(Pens.Aqua, CSng(20 + te * data.tEnd), CSng(0), CSng(20 + te * data.tEnd), 800)
-        '   MsgBox(pressure(t))
+        g.DrawLine(Pens.Black, CSng(60 + te * data.t1), CSng(0), CSng(60 + te * data.t1), 800)
+        g.DrawLine(Pens.Brown, CSng(60 + te * data.tStartHeatRising), CSng(0), CSng(60 + te * data.tStartHeatRising), 800)
+        g.DrawLine(Pens.Gray, CSng(60 + te * data.tEndHeatRising), CSng(0), CSng(60 + te * data.tEndHeatRising), 800)
+        g.DrawLine(Pens.Yellow, CSng(60 + te * data.tKatodActivate), CSng(0), CSng(60 + te * data.tKatodActivate), 800)
+        g.DrawLine(Pens.Pink, CSng(60 + te * data.tKatodActive), CSng(0), CSng(60 + te * data.tKatodActive), 800)
+        g.DrawLine(Pens.Gold, CSng(60 + te * data.tEndHeating), CSng(0), CSng(60 + te * data.tEndHeating), 800)
+        g.DrawLine(Pens.Indigo, CSng(60 + te * data.tKatodDisactivate), CSng(0), CSng(60 + te * data.tKatodDisactivate), 800)
+        g.DrawLine(Pens.Aqua, CSng(60 + te * data.tEnd), CSng(0), CSng(60 + te * data.tEnd), 800)
+
     End Sub
 
     Function CreateData() As Data
@@ -98,7 +92,7 @@
         data.pressureBegin = 10000
         data.qFlows = 10 ^ -10
         data.s1 = 25 * 10 ^ -3
-        data.s2 = 33 * 10 ^ -2
+        data.s2 = 3 * 10 ^ -2
         data.t1 = 1500
         data.temperatureBeforeHeat = 293
         data.temperatureAfterHeat = 793
@@ -121,38 +115,38 @@
         Dim drain = New Drain
         'заполняем данные корпуса
         unit.body = body
-        unit.body.kBeforeHeat = 10 ^ -6
-        unit.body.kAfterHeat = 10 ^ -10
-        unit.body.qSumAfterHeat = 2 * 10 ^ -14
+        unit.body.kBeforeHeat = 10 ^ -5
+        unit.body.kAfterHeat = 10 ^ -7
+        unit.body.qSumAfterHeat = 10 ^ -13
         unit.body.qSumBeforeHeat = 10 ^ -13
         unit.body.square = 1
         unit.body.volume = 1
         unit.body.qUdel = 10 ^ -6
         'заполняем данные канала
         unit.channel = channel
-        unit.channel.kBeforeHeat = 10 ^ -6
-        unit.channel.kAfterHeat = 10 ^ -10
+        unit.channel.kBeforeHeat = 10 ^ -5
+        unit.channel.kAfterHeat = 10 ^ -7
         unit.channel.volume = 1
         unit.channel.square = 1
         unit.channel.qUdel = 10 ^ -6
         'заполняем данные коллектора
         unit.drain = drain
-        unit.drain.kBeforeHeat = 10 ^ -6
-        unit.drain.kAfterHeat = 10 ^ -10
+        unit.drain.kBeforeHeat = 10 ^ -5
+        unit.drain.kAfterHeat = 10 ^ -7
         unit.drain.volume = 1
         unit.drain.square = 1
         unit.drain.qUdel = 10 ^ -6
         'заполняем данные пушки
         unit.gun = gun
-        unit.gun.kBeforeHeat = 10 ^ -6
-        unit.gun.kAfterHeat = 10 ^ -10
+        unit.gun.kBeforeHeat = 10 ^ -5
+        unit.gun.kAfterHeat = 10 ^ -7
         unit.gun.volume = 1
         unit.gun.square = 1
         unit.gun.qUdel = 10 ^ -6
         'заполняем данные катода
         unit.katod = katod
-        unit.katod.kBeforeHeat = 10 ^ -6
-        unit.katod.kAfterHeat = 10 ^ -10
+        unit.katod.kBeforeHeat = 10 ^ -5
+        unit.katod.kAfterHeat = 10 ^ -7
         unit.katod.volume = 1
         unit.katod.square = 1
         unit.katod.qUdel = 10 ^ -6
@@ -229,7 +223,7 @@
             q += FlowConstant(tmp, unit.katod, changingParams, data)
             flowParam = FlowParameterWhenConst(tmp, data, changingParams, unit.body)
             ' промежуток времени до полной остановки подогрева камеры
-        ElseIf tmp.t >= data.tKatodActivate And tmp.t < data.tEndHeating Then
+        ElseIf tmp.t >= data.tKatodActivate And tmp.t <= data.tEndHeating Then
             changingParams.temperatureBegin = data.temperatureAfterHeat
             q += FlowConstant(tmp, unit.body, changingParams, data)
             q += FlowConstant(tmp, unit.channel, changingParams, data)
@@ -296,12 +290,9 @@
             unit.qSumAfter = body.qSumAfterHeat
         Else
             unit.qSumBefore = body.qSumAfterHeat
-            unit.qSumAfter = body.qSumBeforeHeat
+            unit.qSumAfter = body.qSumAfterHeat 'body.qSumBeforeHeat
         End If
-        qSumKoef = (unit.qSumBefore + (unit.qSumAfter - unit.qSumBefore) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin)) * (data.pressureBegin - tmp.p) '((unit.qSumAfter - unit.qSumBefore) * (tmp.t - unit.timeEnd) / (unit.timeEnd - unit.timeBegin)) * (data.pressureBegin - tmp.p)
-        If tmp.t >= data.tStartHeatRising And tmp.t < data.tStartHeatRising + 10 Then
-            Console.WriteLine(qSumKoef)
-        End If
+        qSumKoef = (unit.qSumBefore + (unit.qSumAfter - unit.qSumBefore) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin)) * (data.pressureBegin - tmp.p)
         Return qSumKoef
     End Function
 
@@ -334,13 +325,10 @@
             unit.kBeforeHeat = element.kAfterHeat
             unit.kAfterHeat = element.kBeforeHeat
         End If
-        tempParam = Math.E ^ (tmp.alpha * ((1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin))) - 1 / 293)) ' тут нужна степень по идее у первого множителя по времени
+        tempParam = Math.E ^ (tmp.alpha * ((1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin))) ^ 2 - 1 / 293)) ' тут нужна степень по идее у первого множителя по времени
         koefParam = unit.kBeforeHeat + (unit.kAfterHeat - unit.kBeforeHeat) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin)
         dinamParam = element.square * element.qUdel * koefParam
-        answer = dinamParam * tempParam * Math.E ^ (-koefParam * tmp.t * tempParam) 'тут быть внимательней со стеменью в tempParam, тут была -2'
-        If tmp.t >= data.tStartHeatRising And tmp.t < data.tStartHeatRising + 10 Then
-            '    Console.WriteLine(tempParam)
-        End If
+        answer = dinamParam * tempParam * Math.E ^ (-koefParam * tmp.t * Math.E ^ (tmp.alpha * ((1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin))) ^ -2 - 1 / 293))) 'tempParam) 'тут быть внимательней со стеменью в tempParam, тут была -2'
         Return answer
     End Function
 
@@ -354,8 +342,8 @@
         k1 = 1.36 * 10 ^ 3
         k2 = tmp.d ^ 3
         koef = (1 + 1.9 * (10 ^ 4) * tmp.d * tmp.p) / (1 + 2.35 * (10 ^ 4) * tmp.d * tmp.p)
-        sEf = (tmp.s * ((k1 * tmp.p * (tmp.d * k2) / tmp.l) + (121 * k2 / tmp.l)) * koef) /
-            (tmp.s + ((k1 * tmp.p * (tmp.d * k2) / tmp.l) + (121 * k2 / tmp.l) * koef))
+        sEf = tmp.s * ((k1 * tmp.p * (tmp.d * k2) / tmp.l) + (121 * k2 / tmp.l)) * koef /
+            (tmp.s + ((k1 * tmp.p * (tmp.d * k2) / tmp.l) + 121 * k2 / tmp.l * koef))
         Return (-1) * tmp.p * sEf
     End Function
 
