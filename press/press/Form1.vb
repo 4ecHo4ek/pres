@@ -30,8 +30,8 @@
         Dim t As Double
         Dim unit As Unit
         Dim data = CreateData()
-        Dim pressure(data.tEnd) As Decimal
-        Dim time(data.tEnd) As Double
+        Dim pressure(data.tEnd + 1) As Decimal
+        Dim time(data.tEnd + 1) As Double
 
         unit = MakeUnitFully()
         tmp.p = data.pressureBegin
@@ -99,7 +99,7 @@
         data.tStartHeatRising = 2500
         data.tEndHeatRising = 4000
         data.tKatodActivate = 5000
-        data.tKatodActive = 6000
+        data.tKatodActive = 5500
         data.tEndHeating = 8000
         data.tKatodDisactivate = 10000
         data.tEnd = 11000
@@ -115,47 +115,45 @@
         Dim drain = New Drain
         'заполняем данные корпуса
         unit.body = body
-        unit.body.kBeforeHeat = 10 ^ -4
+        unit.body.kBeforeHeat = 10 ^ -5
         unit.body.kAfterHeat = 10 ^ -6
         unit.body.qSumAfterHeat = 10 ^ -13
-        unit.body.qSumBeforeHeat = 10 ^ -13
-        unit.body.square = 100
+        unit.body.qSumBeforeHeat = 10 ^ -10
+        unit.body.square = 1000
         unit.body.volume = 1
         unit.body.qUdel = 10 ^ -5
         'заполняем данные канала
         unit.channel = channel
-        unit.channel.kBeforeHeat = 10 ^ -4
+        unit.channel.kBeforeHeat = 10 ^ -5
         unit.channel.kAfterHeat = 10 ^ -6
         unit.channel.volume = 0.3
         unit.channel.square = 10
         unit.channel.qUdel = 10 ^ -5
         'заполняем данные коллектора
         unit.drain = drain
-        unit.drain.kBeforeHeat = 10 ^ -4
+        unit.drain.kBeforeHeat = 10 ^ -5
         unit.drain.kAfterHeat = 10 ^ -6
         unit.drain.volume = 0.2
-        unit.drain.square = 10
+        unit.drain.square = 100
         unit.drain.qUdel = 10 ^ -5
         'заполняем данные пушки
         unit.gun = gun
-        unit.gun.kBeforeHeat = 10 ^ -4
+        unit.gun.kBeforeHeat = 10 ^ -5
         unit.gun.kAfterHeat = 10 ^ -6
         unit.gun.volume = 0.2
-        unit.gun.square = 10
+        unit.gun.square = 100
         unit.gun.qUdel = 10 ^ -5
         'заполняем данные катода
         unit.katod = katod
-        unit.katod.kBeforeHeat = 10 ^ -4
+        unit.katod.kBeforeHeat = 10 ^ -5
         unit.katod.kAfterHeat = 10 ^ -6
         unit.katod.volume = 0.2
-        unit.katod.square = 10
+        unit.katod.square = 100
         unit.katod.qUdel = 10 ^ -5
         unit.katod.temperatureMax = 1400
         '   unit.katod.tRise = 600
         Return unit
     End Function
-
-
 
     Function StartCalculatePressureWithRungeKutt(ByVal tmp As TmpParam, ByVal data As Data, ByVal unit As Unit) As Decimal
         Dim pressure As Decimal
@@ -232,14 +230,14 @@
             ' оставшееся время остывания
         ElseIf tmp.t > data.tEndHeating And tmp.t <= data.tEnd Then
             changingParams.temperatureBegin = data.temperatureAfterHeat
-            changingParams.temperatureAfter = data.temperatureBeforeHeat
+            changingParams.temperatureAfter = data.temperatureAfterHeat 'data.temperatureBeforeHeat
             changingParams.timeBegin = data.tEndHeating
             changingParams.timeEnd = data.tEnd
-            q += FlowDinam(tmp, unit.body, changingParams, data)
-            q += FlowDinam(tmp, unit.channel, changingParams, data)
-            q += FlowDinam(tmp, unit.drain, changingParams, data)
-            q += FlowDinam(tmp, unit.gun, changingParams, data)
-            q += FlowDinam(tmp, unit.katod, changingParams, data)
+            q += FlowConstant(tmp, unit.body, changingParams, data) ' тут везде dinam
+            q += FlowConstant(tmp, unit.channel, changingParams, data) ' тут везде dinam
+            q += FlowConstant(tmp, unit.drain, changingParams, data) ' тут везде dinam
+            q += FlowConstant(tmp, unit.gun, changingParams, data) ' тут везде dinam
+            q += FlowConstant(tmp, unit.katod, changingParams, data) ' тут везде dinam
             flowParam = FlowParameterWhenDimanic(tmp, data, changingParams, unit.body)
         End If
         'начиная с прогрева катода, он и пушка уходят в отдельную ветку
@@ -260,10 +258,11 @@
             changingParams.timeBegin = data.tKatodDisactivate
             changingParams.timeEnd = data.tEnd
             changingParams.temperatureBegin = unit.katod.temperatureMax
-            changingParams.temperatureAfter = data.temperatureBeforeHeat
-            q += FlowDinam(tmp, unit.katod, changingParams, data)
+            '   changingParams.temperatureAfter = data.temperatureBeforeHeat
+            changingParams.temperatureAfter = unit.katod.temperatureMax ''
+            q += FlowConstant(tmp, unit.katod, changingParams, data) ' тут везде dinam
             changingParams.temperatureBegin = unit.katod.temperatureMax * 0.8
-            q += FlowDinam(tmp, unit.gun, changingParams, data)
+            q += FlowConstant(tmp, unit.gun, changingParams, data) ' тут везде dinam
         End If
         Return (sEf + q + flowParam) / unit.body.volume
     End Function
@@ -301,14 +300,26 @@
         Dim answer As Decimal
         Dim param1 As Decimal
 
+        Dim ee As Decimal ''
         If tmp.t < data.tEndHeatRising Then
+            ee = element.qUdel
             unit.kBeforeHeat = element.kBeforeHeat
         Else
-            unit.kBeforeHeat = element.kAfterHeat
+            ee = element.qUdel / ((data.tEndHeatRising - data.tStartHeatRising) / 3600) ^ (1 / 2) ' tmp.t первым временем
+            unit.kBeforeHeat = element.kBeforeHeat / ((data.tEndHeatRising - data.tStartHeatRising) / 3600) ^ (1 / 2)
         End If
-        param1 = element.square * element.qUdel * unit.kBeforeHeat
+        param1 = element.square * ee * unit.kBeforeHeat
         constParam = Math.E ^ (tmp.alpha * ((1 / unit.temperatureBegin) - 1 / 293))
         answer = param1 * constParam * Math.E ^ (-unit.kBeforeHeat * tmp.t * constParam)
+
+        'If tmp.t < data.tEndHeatRising Then
+        '   unit.kBeforeHeat = element.kBeforeHeat
+        '   Else
+        ' unit.kBeforeHeat = element.kBeforeHeat 'element.kAfterHeat
+        '   End If
+        '   param1 = element.square * element.qUdel * unit.kBeforeHeat
+        '   constParam = Math.E ^ (tmp.alpha * ((1 / unit.temperatureBegin) - 1 / 293))
+        '   answer = param1 * constParam * Math.E ^ (-unit.kBeforeHeat * tmp.t * constParam)
         Return answer
     End Function
 
@@ -318,18 +329,39 @@
         Dim koefParam As Decimal
         Dim dinamParam As Decimal
 
+        Dim ee As Decimal ''
         If tmp.t <= data.tEndHeatRising Then
+            ee = element.qUdel
             unit.kBeforeHeat = element.kBeforeHeat
-            unit.kAfterHeat = element.kAfterHeat
+            unit.kAfterHeat = element.kBeforeHeat / ((data.tEndHeatRising - data.tStartHeatRising) / 3600) ^ (1 / 2)
         Else
-            unit.kBeforeHeat = element.kAfterHeat
-            unit.kAfterHeat = element.kAfterHeat 'element.kBeforeHeat
+            ee = element.qUdel '/ ((data.tEndHeatRising - data.tStartHeatRising) / 3600) ^ (1 / 2)
+            unit.kBeforeHeat = element.kBeforeHeat / ((data.tEndHeatRising - data.tStartHeatRising) / 3600) ^ (1 / 2)
+            unit.kAfterHeat = element.kBeforeHeat / ((data.tEndHeatRising - data.tStartHeatRising) / 3600) ^ (1 / 2)
         End If
-        Dim qq = element.qUdel + (10 ^ -8 - element.qUdel) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin)
-        tempParam = Math.E ^ (tmp.alpha * ((1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin))) ^ 2 - 1 / 293)) ' тут нужна степень по идее у первого множителя по времени
+        ' Dim qq = ee + (element.qUdel - ee) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin)
+
+
+        tempParam = Math.E ^ (tmp.alpha * ((1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin))) - 1 / 293)) ' тут нужна степень по идее у первого множителя по времени
         koefParam = unit.kBeforeHeat + (unit.kAfterHeat - unit.kBeforeHeat) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin)
-        dinamParam = element.square * qq * koefParam 'element.qUdel * koefParam ' очень похоже, что данная конструкция верна 
-        answer = dinamParam * tempParam * Math.E ^ (-koefParam * tmp.t * Math.E ^ (tmp.alpha * ((1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin))) ^ -2 - 1 / 293))) 'tempParam) 'тут быть внимательней со стеменью в tempParam, тут была -2'
+        dinamParam = element.square * ee * koefParam
+        answer = dinamParam * tempParam * Math.E ^ (-koefParam * tmp.t * Math.E ^ (tmp.alpha * tempParam))
+
+
+
+
+
+        'If tmp.t <= data.tEndHeatRising Then
+        '   unit.kBeforeHeat = element.kBeforeHeat
+        ' unit.kAfterHeat = element.kBeforeHeat   
+        '  Else
+        '  unit.kBeforeHeat = element.kAfterHeat
+        '    unit.kAfterHeat = element.kAfterHeat 'element.kBeforeHeat
+        ' End If
+        '  tempParam = Math.E ^ (tmp.alpha * ((1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin))) ^ 2 - 1 / 293)) ' тут нужна степень по идее у первого множителя по времени
+        '  koefParam = unit.kBeforeHeat + (unit.kAfterHeat - unit.kBeforeHeat) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin)
+        '  dinamParam = element.square * element.qUdel * koefParam
+        '  answer = dinamParam * tempParam * Math.E ^ (-koefParam * tmp.t * Math.E ^ (tmp.alpha * ((1 / (unit.temperatureBegin + (unit.temperatureAfter - unit.temperatureBegin) * (tmp.t - unit.timeBegin) / (unit.timeEnd - unit.timeBegin))) ^ -2 - 1 / 293))) 'tempParam) 'тут быть внимательней со стеменью в tempParam, тут была -2'
         Return answer
     End Function
 
