@@ -66,15 +66,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Body.vb" />
+    <Compile Include="CalculatingPart.vb" />
+    <Compile Include="CancelingOrClosing.vb" />
     <Compile Include="Channel.vb" />
     <Compile Include="Data.vb" />
     <Compile Include="Drain.vb" />
+    <Compile Include="DrawingData.vb" />
+    <Compile Include="DrawingPart.vb" />
     <Compile Include="Element.vb" />
-    <Compile Include="Form1.vb">
+    <Compile Include="Pressure.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Pressure.Designer.vb">
+      <DependentUpon>Pressure.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.vb" />
+    <Compile Include="Graph.Designer.vb">
+      <DependentUpon>Graph.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Graph.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gun.vb" />
@@ -94,11 +105,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="CalculatingAndStandartParams.vb" />
     <Compile Include="Unit.vb" />
+    <Compile Include="WriteToFile.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Pressure.resx">
+      <DependentUpon>Pressure.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph.resx">
+      <DependentUpon>Graph.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

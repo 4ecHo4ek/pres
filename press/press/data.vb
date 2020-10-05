@@ -1,4 +1,4 @@
-﻿Public Class Data
+﻿<System.Serializable()> Public Structure Data
     Public l1 As Double ' длина входа маломощного насоса
     Public l2 As Double ' длина входа мощного насоса
     Public d1 As Double ' диаметр малого насоса
@@ -18,4 +18,8 @@
     Public tEndHeating As Double ' отключение темпиратуры
     Public tKatodDisactivate As Double ' отключение катода
     Public tEnd As Double ' окончание откачки
-End Class
+    Public minPreVac As Double ' мин давление форвак насоса
+    Public h As Double ' шаг рунгекутта
+    Public tStartGraph As Double ' начальный отрезок для отрисовки
+    Public tEndEndGraph As Double ' конечный отрезок для отрисовки
+End Structure

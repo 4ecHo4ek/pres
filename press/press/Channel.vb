@@ -1,4 +1,4 @@
-﻿Public Class Channel
+﻿<System.Serializable()> Public Class Channel
     Inherits Element
 
 End Class
