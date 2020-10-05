@@ -21,7 +21,7 @@
     End Structure
 
 
-    Function Draw() As Boolean
+    Function Draw()
 
         Dim btMap As Bitmap
         Dim drawingData = New DrawingData
@@ -41,7 +41,7 @@
             parts = SetConstParams(parts, drawingData)
         Catch ex As Exception
             f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка сбора данных построения графика"
-            Return False
+            Exit Function
         End Try
 
         Try
@@ -55,16 +55,16 @@
             End If
         Catch
             f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка подготовки поля рисурка"
-            Return False
+            Exit Function
         End Try
-
+        f1.ProgressBar1.Value = 8
         Try
             parts = SetKoefForDraw(parts)
             setAxis(g, parts)
             DrawGraph(g, pressure, parts)
         Catch
             f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка формирования изображения графика"
-            Return False
+            Exit Function
         End Try
 
         Dim newFileName = filePath + CStr(calculationCount) + ".bmp"
@@ -78,9 +78,9 @@
             btMap.Dispose()
         Catch
             f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка сохранения изображения графика"
-            Return False
+            Exit Function
         End Try
-        Return True
+        f1.ProgressBar1.Value = 9
     End Function
 
     Function PreparePressuresParams(ByVal parts As PartsForDrawing, ByVal write As WriteToFile) As PartsForDrawing

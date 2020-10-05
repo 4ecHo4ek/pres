@@ -62,16 +62,15 @@ Public Class CalculatingPart
                 End If
                 tmp.p += StartCalculatePressureWithRungeKutt(changingParam, tmp, data, unit)
                 pressure(t) = tmp.p
-
+                f1.ProgressBar1.Value = 7 * t / data.tEnd
             End While
             name = "pressures\pressure" + CStr(calculationCount) + ".data"
             write.WritePressuer(pressure, name, data.tStartGraph, data.tEndEndGraph)
         Catch ex As Exception
             f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка вычисления давления на " & CStr(t) & " cек."
         End Try
-
+        Return pressure(data.tEnd)
         f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "Вычисления успешно завершены"
-        f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "Предельное давление " & CStr(Format(pressure(data.tEnd), "0.###E+0")) & " достигнуто"
     End Function
 
 

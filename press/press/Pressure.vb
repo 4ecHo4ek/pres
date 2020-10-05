@@ -5,19 +5,24 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        f1 = Me
         Dim file = New WriteToFile
         Dim cearchPart = New CalculatingPart
         Dim draw = New DrawingPart
         Dim filePath As String = "bmp\"
         Dim fileName = filePath + CStr(calculationCount) + ".bmp"
+        Dim pressure As Double
 
+        Button1.Text = "Вычисляю"
+        LogTF.Text = LogTF.Text & vbCrLf & "Начинаю вычисление давления"
+        f1 = Me
+        ProgressSetings()
         ' тут получаем файлы с начальной инфой
         If Not file.WriteBeginigDataToFile(f1) Then
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка формирования начального запроса"
+            LogTF.Text = LogTF.Text & vbCrLf & "ошибка формирования начального запроса"
             Exit Sub
         End If
-
+        ProgressBar1.Value = 1
+        LogTF.Text = "Входные данные сформированы"
         If calculationCount = 0 Then
             If IO.Directory.Exists("pressures") Then
                 IO.Directory.Delete("pressures", True)
@@ -32,12 +37,13 @@
             End If
             IO.Directory.CreateDirectory("partsfordrawing") '
         End If
-
+        LogTF.Text = LogTF.Text & vbCrLf & "Начало вычисления давления"
         Try
+            ProgressBar1.Value = 2
             SetRightParams()
-            cearchPart.Calculatings()
+            pressure = cearchPart.Calculatings()
         Catch
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка выполнения программы"
+            LogTF.Text = LogTF.Text & vbCrLf & "ошибка выполнения программы"
             Exit Sub
         End Try
 
@@ -46,33 +52,37 @@
             f2.Show()
             f2.Height = f1.HeightBoxTF.Text
             f2.Width = f1.WidhtBoxTF.Text
+            LogTF.Text = LogTF.Text & vbCrLf & "форма графика создна"
         End If
 
-        If draw.Draw() Then
+        Try
+            draw.Draw()
             f2.Select()
             Using mstream As New System.IO.MemoryStream(IO.File.ReadAllBytes(fileName))
                 f2.Graphic.Image = Image.FromStream(mstream)
             End Using
             calculationCount += 1
-        Else
-            fileName = filePath + CStr(calculationCount - 1) + ".bmp"
-            f2.Graphic.Image = Nothing
+        Catch
+            If calculationCount = 0 Then
+                f2.Graphic.Image = Nothing
+            Else
+                fileName = filePath + CStr(calculationCount - 1) + ".bmp"
+            End If
             f2.Graphic.Image = Image.FromFile(fileName)
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка загрузки изображения эксперимента, возврат предыдущего изображения"
+            f1.LogTF.Text = LogTF.Text & vbCrLf & "ошибка загрузки изображения эксперимента, возврат предыдущего изображения"
             Exit Sub
-        End If
-
-
+        End Try
+        LogTF.Text = LogTF.Text & vbCrLf & "график построен"
+        LogTF.Text = LogTF.Text & vbCrLf & "Предельное давление " & CStr(Format(pressure, "0.###E+0")) & " достигнуто"
+        Button1.Text = "Вычислено"
+        f1.ProgressBar1.Value = 10
     End Sub
 
 
 
-    Function OnOffButtons(ByVal show As Boolean)
-        If show Then
-            ' WidhtBoxTF.r
-        Else
-
-        End If
+    Function ProgressSetings()
+        ProgressBar1.Minimum = 0
+        ProgressBar1.Maximum = 10
     End Function
 
     Function SetRightParams()
@@ -102,6 +112,7 @@
         Dim close = New CancelingOrClosing
         close.Close()
         f2.Close()
+        LogTF.Text = ""
     End Sub
 
     Private Sub WidhtBoxTF_Leave(sender As Object, e As EventArgs) Handles WidhtBoxTF.Leave
@@ -135,6 +146,10 @@
         If Not IsNumeric(BeginGraphTimeTF.Text) Then
             BeginGraphTimeTF.Text = tmp
         End If
+        If CDbl(BeginGraphTimeTF.Text) > CDbl(EndGraphTimeTF.Text) Then
+            BeginGraphTimeTF.Text = tmp
+            LogTF.Text = LogTF.Text & vbCrLf & "Время начала построения графика не может начинаться раньше его завершения"
+        End If
     End Sub
 
     Private Sub EndGraphTimeTF_Leave(sender As Object, e As EventArgs) Handles EndGraphTimeTF.Leave
@@ -145,6 +160,10 @@
         EndGraphTimeTF.Text = EndGraphTimeTF.Text.Replace(".", ",")
         If Not IsNumeric(EndGraphTimeTF.Text) Then
             EndGraphTimeTF.Text = tmp
+        End If
+        If CDbl(EndGraphTimeTF.Text) > tmp Then
+            EndGraphTimeTF.Text = tmp
+            LogTF.Text = LogTF.Text & vbCrLf & "Время окончания построения графика не может быть больше времени окончания эксперимента"
         End If
     End Sub
 
@@ -407,6 +426,13 @@
             EndGraphTimeTF.ReadOnly = True
         Else
             EndGraphTimeTF.ReadOnly = False
+        End If
+    End Sub
+
+
+    Private Sub Button1_MouseMove(sender As Object, e As MouseEventArgs) Handles Button1.MouseMove
+        If Button1.Text = "Вычислено" Then
+            Button1.Text = "Рассчитать"
         End If
     End Sub
 End Class
