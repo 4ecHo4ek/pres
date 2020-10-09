@@ -1,4 +1,4 @@
-﻿Public Class WriteToFile
+﻿Public Class WriteAndReadToFile
 
     Function WriteBeginigDataToFile(ByVal f1 As Pressure) As Boolean
         Dim folder As String = "allInfo"
@@ -10,16 +10,16 @@
         IO.Directory.CreateDirectory(folder)
 
         If Not save.SetDataParams(f1) Then
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка подготовки исходных файлов"
+            WriteLogs("Ошибка подготовки исходных файлов")
             Return False
         End If
         If Not save.SetUnitParams(f1) Then
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка подготовки исходных файлов"
+            WriteLogs("Ошибка подготовки исходных файлов")
             Return False
 
         End If
         If Not save.SetDrawingParams(f1) Then
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка подготовки исходных файлов"
+            WriteLogs("Ошибка подготовки исходных файлов")
             Return False
         End If
 
@@ -85,4 +85,14 @@
         Return drawingData
     End Function
 
+    Function WriteLogs(ByVal message As String)
+        Dim path As String = "log.txt"
+        Dim wr = New IO.StreamWriter(path, append:=True)
+        If Not IO.File.Exists(path) Then
+            IO.File.Create(path)
+        End If
+
+        wr.WriteLine(message)
+        wr.Close()
+    End Function
 End Class

@@ -1,7 +1,4 @@
-﻿
-
-
-Public Class CalculatingPart
+﻿Public Class CalculatingPart
 
     Structure TmpParam
         Dim l As Double ' длина соед канала
@@ -29,11 +26,11 @@ Public Class CalculatingPart
         Dim data = New Data
         Dim pressure() As Double
         Dim t As Double
-        Dim write = New WriteToFile
         Dim changingParam = New ChangingParams
         Dim unit = New Unit
         Dim tmp = New TmpParam
-        Dim name As String
+        Dim write = New WriteAndReadToFile
+        Dim text As String
 
         data = write.SetStructForCalcPressAsData(data)
         unit = write.SetStructForCalcPressAsUnit(unit)
@@ -56,6 +53,11 @@ Public Class CalculatingPart
                         tmp.s = 0
                     End If
                 Else
+                    If t > data.t1 And tmp.p > data.minPreVac Then
+                        write.WriteLogs("Минимальное давление для включения вакуумного насоса не достигнуто")
+                        WritePressure(data, pressure, tmp.t, write)
+                        Exit Function
+                    End If
                     tmp.d = data.d2
                     tmp.l = data.l2
                     tmp.s = data.s2
@@ -64,15 +66,30 @@ Public Class CalculatingPart
                 pressure(t) = tmp.p
                 f1.ProgressBar1.Value = 7 * t / data.tEnd
             End While
-            name = "pressures\pressure" + CStr(calculationCount) + ".data"
-            write.WritePressuer(pressure, name, data.tStartGraph, data.tEndEndGraph)
+            WritePressure(data, pressure, tmp.t, write)
         Catch ex As Exception
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка вычисления давления на " & CStr(t) & " cек."
+            text = "ошибка вычисления давления на " & CStr(t) & " cек."
+            write.WriteLogs(text)
         End Try
         Return pressure(data.tEnd)
-        f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "Вычисления успешно завершены"
+        write.WriteLogs("Вычисления успешно завершены")
     End Function
 
+    Function WritePressure(ByVal data As Data, ByVal pressure() As Double, ByVal time As Double, ByVal write As WriteAndReadToFile)
+        Dim name As String
+
+
+        If time < data.tStartGraph Then
+            Exit Function
+        End If
+        name = "pressures\pressure" + CStr(calculationCount) + ".data"
+        If time = data.tEndEndGraph Then
+            write.WritePressuer(pressure, name, data.tStartGraph, data.tEndEndGraph)
+        Else
+            write.WritePressuer(pressure, name, data.tStartGraph, time)
+        End If
+
+    End Function
 
     Function StartCalculatePressureWithRungeKutt(ByVal changingParam As ChangingParams, ByVal tmp As TmpParam, ByVal data As Data, ByVal unit As Unit) As Decimal
         Dim pressure As Decimal

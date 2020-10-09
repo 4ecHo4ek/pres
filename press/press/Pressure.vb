@@ -1,28 +1,26 @@
 ﻿Public Class Pressure
-
-
     Public f2 As Graph
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim file = New WriteToFile
+        Dim file = New WriteAndReadToFile
         Dim cearchPart = New CalculatingPart
         Dim draw = New DrawingPart
         Dim filePath As String = "bmp\"
         Dim fileName = filePath + CStr(calculationCount) + ".bmp"
         Dim pressure As Double
 
+        file.WriteLogs("Начинаю вычисление давления")
         Button1.Text = "Вычисляю"
-        LogTF.Text = LogTF.Text & vbCrLf & "Начинаю вычисление давления"
         f1 = Me
         ProgressSetings()
+
         ' тут получаем файлы с начальной инфой
         If Not file.WriteBeginigDataToFile(f1) Then
-            LogTF.Text = LogTF.Text & vbCrLf & "ошибка формирования начального запроса"
+            file.WriteLogs("ошибка формирования начального запроса")
             Exit Sub
         End If
+
         ProgressBar1.Value = 1
-        LogTF.Text = "Входные данные сформированы"
+        file.WriteLogs("Входные данные сформированы")
         If calculationCount = 0 Then
             If IO.Directory.Exists("pressures") Then
                 IO.Directory.Delete("pressures", True)
@@ -32,18 +30,18 @@
                 IO.Directory.Delete("bmp", True)
             End If
             IO.Directory.CreateDirectory("bmp")
-            If IO.Directory.Exists("partsfordrawing") Then
-                IO.Directory.Delete("partsfordrawing", True)
-            End If
-            IO.Directory.CreateDirectory("partsfordrawing") '
+
+
+
         End If
-        LogTF.Text = LogTF.Text & vbCrLf & "Начало вычисления давления"
+        file.WriteLogs("Начало вычисления давления")
+
         Try
             ProgressBar1.Value = 2
             SetRightParams()
             pressure = cearchPart.Calculatings()
         Catch
-            LogTF.Text = LogTF.Text & vbCrLf & "ошибка выполнения программы"
+            file.WriteLogs("ошибка выполнения программы")
             Exit Sub
         End Try
 
@@ -52,7 +50,7 @@
             f2.Show()
             f2.Height = f1.HeightBoxTF.Text
             f2.Width = f1.WidhtBoxTF.Text
-            LogTF.Text = LogTF.Text & vbCrLf & "форма графика создна"
+            file.WriteLogs("форма графика создна")
         End If
 
         Try
@@ -67,18 +65,30 @@
                 f2.Graphic.Image = Nothing
             Else
                 fileName = filePath + CStr(calculationCount - 1) + ".bmp"
+                f2.Graphic.Image = Image.FromFile(fileName)
             End If
-            f2.Graphic.Image = Image.FromFile(fileName)
-            f1.LogTF.Text = LogTF.Text & vbCrLf & "ошибка загрузки изображения эксперимента, возврат предыдущего изображения"
+            file.WriteLogs("ошибка загрузки изображения эксперимента, возврат предыдущего изображения")
             Exit Sub
         End Try
-        LogTF.Text = LogTF.Text & vbCrLf & "график построен"
-        LogTF.Text = LogTF.Text & vbCrLf & "Предельное давление " & CStr(Format(pressure, "0.###E+0")) & " достигнуто"
+        file.WriteLogs("график построен")
+        file.WriteLogs("Предельное давление " & CStr(Format(pressure, "0.###E+0")) & " достигнуто")
         Button1.Text = "Вычислено"
         f1.ProgressBar1.Value = 10
+
+        ReadLogs()
     End Sub
 
+    Function ReadLogs()
+        Dim path As String = "log.txt"
+        Dim SR = New IO.StreamReader(path)
 
+
+        While SR.Peek <> -1
+            LogTF.Text = LogTF.Text & vbCrLf & SR.ReadLine()
+        End While
+
+        SR.Close()
+    End Function
 
     Function ProgressSetings()
         ProgressBar1.Minimum = 0
@@ -106,13 +116,15 @@
     Private Sub Pressure_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim standart = New CalculatingAndStandartParams
         standart.setStandart(Me)
+        ' Button2.Enabled = False
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim close = New CancelingOrClosing
-        close.Close()
+        close.CloseAndDelete()
         f2.Close()
         LogTF.Text = ""
+        f1.ProgressBar1.Value = 0
     End Sub
 
     Private Sub WidhtBoxTF_Leave(sender As Object, e As EventArgs) Handles WidhtBoxTF.Leave
@@ -433,6 +445,14 @@
     Private Sub Button1_MouseMove(sender As Object, e As MouseEventArgs) Handles Button1.MouseMove
         If Button1.Text = "Вычислено" Then
             Button1.Text = "Рассчитать"
+        End If
+    End Sub
+
+    Private Sub Pressure_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+        If calculationCount = 0 Then
+            Button2.Enabled = False
+        Else
+            Button2.Enabled = True
         End If
     End Sub
 End Class

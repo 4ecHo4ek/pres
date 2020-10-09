@@ -107,7 +107,7 @@
     </Compile>
     <Compile Include="CalculatingAndStandartParams.vb" />
     <Compile Include="Unit.vb" />
-    <Compile Include="WriteToFile.vb" />
+    <Compile Include="WriteAndReadToFile.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pressure.resx">

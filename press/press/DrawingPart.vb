@@ -26,7 +26,7 @@
         Dim btMap As Bitmap
         Dim drawingData = New DrawingData
         Dim parts = New PartsForDrawing
-        Dim write = New WriteToFile
+        Dim write = New WriteAndReadToFile
         Dim pressParam = New PressureParams
         Dim pressure(calculationCount + 1)() As Double
         Dim filePath As String = "bmp\"
@@ -40,7 +40,7 @@
             parts = PreparePressuresParams(parts, write)
             parts = SetConstParams(parts, drawingData)
         Catch ex As Exception
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка сбора данных построения графика"
+            write.WriteLogs("Ошибка сбора данных построения графика")
             Exit Function
         End Try
 
@@ -54,7 +54,7 @@
                 g = Graphics.FromImage(btMap)
             End If
         Catch
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка подготовки поля рисурка"
+            write.WriteLogs("Ошибка подготовки поля рисурка")
             Exit Function
         End Try
         f1.ProgressBar1.Value = 8
@@ -63,7 +63,7 @@
             setAxis(g, parts)
             DrawGraph(g, pressure, parts)
         Catch
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка формирования изображения графика"
+            write.WriteLogs("Ошибка формирования изображения графика")
             Exit Function
         End Try
 
@@ -77,13 +77,13 @@
             g.Dispose()
             btMap.Dispose()
         Catch
-            f1.LogTF.Text = f1.LogTF.Text & vbCrLf & "ошибка сохранения изображения графика"
+            write.WriteLogs("Ошибка сохранения изображения графика")
             Exit Function
         End Try
         f1.ProgressBar1.Value = 9
     End Function
 
-    Function PreparePressuresParams(ByVal parts As PartsForDrawing, ByVal write As WriteToFile) As PartsForDrawing
+    Function PreparePressuresParams(ByVal parts As PartsForDrawing, ByVal write As WriteAndReadToFile) As PartsForDrawing
         Dim pMax(calculationCount + 1) As Double
         Dim pMin(calculationCount + 1) As Double
         Dim pressParam = New PressureParams
@@ -110,7 +110,7 @@
         Return parts
     End Function
 
-    Function PreparePressures(ByVal pressure()() As Double, ByVal write As WriteToFile) As Double()()
+    Function PreparePressures(ByVal pressure()() As Double, ByVal write As WriteAndReadToFile) As Double()()
         Dim pressParam = New PressureParams
 
         For i As Integer = 0 To calculationCount
@@ -217,7 +217,7 @@
         For i As Integer = 0 To calculationCount
             part.countDraw = i
 
-            If part.countDraw > 12 Then
+            If part.countDraw >= 12 Then
                 part.countDraw = part.countDraw Mod 12
             End If
 
