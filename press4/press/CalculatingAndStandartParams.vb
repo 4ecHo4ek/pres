@@ -65,10 +65,23 @@
         f1.gunkMinTF.Text = 10 ^ -10
         f1.gunqMinTF.Text = 10 ^ -10
         f1.gunvolumeTF.Text = 0.42
+        ' сохранение
+        f1.tBeginSavingTF.Text = 0
+        f1.tEndSavingTF.Text = f1.tEndTF.Text
+        f1.worvakKoefTF.Text = 3
+        f1.vakPreHeatKoefTF.Text = 10
+        f1.heatingKoefTF.Text = 50
+        f1.hightTempTimeKoefTF.Text = 20
+        f1.katodRisingKoefTF.Text = 20
+        f1.heatingConstKoefTF.Text = 20
+        f1.endKatodKoefTF.Text = 20
+        f1.endKoefTF.Text = 20
     End Function
 
     Function SetDataParams(ByVal f1 As Pressure) As Boolean
         Dim f1leData As String = "allInfo\data.data"
+        Dim koef = 60 ^ (f1.ComboBox3.SelectedIndex)
+
         Dim data = New Data With {
             .pressureBegin = f1.BeginPressTF.Text,
             .qFlows = f1.MinFlowTF.Text,
@@ -76,14 +89,14 @@
             .h = f1.HKoefTF.Text,
             .temperatureBeforeHeat = f1.TempBeginTF.Text,
             .temperatureAfterHeat = f1.TempEndTF.Text,
-            .t1 = f1.t1TF.Text,
-            .tStartHeatRising = f1.tStartHeatRisingTF.Text,
-            .tEndHeatRising = f1.tEndHeatRisingTF.Text,
-            .tKatodActivate = f1.tKatodActivateTF.Text,
-            .tKatodActive = f1.tKatodActiveTF.Text,
-            .tEndHeating = f1.tEndHeatingTF.Text,
-            .tKatodDisactivate = f1.tKatodDisactivateTF.Text,
-            .tEnd = f1.tEndTF.Text,
+            .t1 = f1.t1TF.Text * koef,
+            .tStartHeatRising = f1.tStartHeatRisingTF.Text * koef,
+            .tEndHeatRising = f1.tEndHeatRisingTF.Text * koef,
+            .tKatodActivate = f1.tKatodActivateTF.Text * koef,
+            .tKatodActive = f1.tKatodActiveTF.Text * koef,
+            .tEndHeating = f1.tEndHeatingTF.Text * koef,
+            .tKatodDisactivate = f1.tKatodDisactivateTF.Text * koef,
+            .tEnd = f1.tEndTF.Text * koef,
             .d1 = f1.d1TF.Text,
             .l1 = f1.l1TF.Text,
             .s1 = f1.s1TF.Text,
@@ -185,9 +198,10 @@
 
     Function SetDrawingParams(ByVal f1 As Pressure) As Boolean
         Dim fileDraw As String = "allInfo\draw.data"
+        Dim koef = 60 ^ (f1.ComboBox3.SelectedIndex)
         Dim draw = New DrawingData With {
-            .tStart = f1.BeginGraphTimeTF.Text,
-            .tEnd = f1.EndGraphTimeTF.Text,
+            .tStart = f1.BeginGraphTimeTF.Text * koef,
+            .tEnd = f1.EndGraphTimeTF.Text * koef,
             .height = f1.HeightBoxTF.Text,
             .width = f1.WidhtBoxTF.Text
         }

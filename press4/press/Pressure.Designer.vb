@@ -26,6 +26,8 @@ Partial Class Pressure
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.EndGraphTimeTF = New System.Windows.Forms.TextBox()
         Me.BeginGraphTimeTF = New System.Windows.Forms.TextBox()
         Me.HeightBoxTF = New System.Windows.Forms.TextBox()
@@ -39,7 +41,6 @@ Partial Class Pressure
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.MinFlowTF = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -47,7 +48,6 @@ Partial Class Pressure
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.BeginPressTF = New System.Windows.Forms.TextBox()
         Me.AlphaTF = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -57,14 +57,7 @@ Partial Class Pressure
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
@@ -80,6 +73,7 @@ Partial Class Pressure
         Me.tEndHeatRisingTF = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.tStartHeatRisingTF = New System.Windows.Forms.TextBox()
+        Me.Label138 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.t1TF = New System.Windows.Forms.TextBox()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
@@ -114,10 +108,9 @@ Partial Class Pressure
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label58 = New System.Windows.Forms.Label()
         Me.Label59 = New System.Windows.Forms.Label()
         Me.Label60 = New System.Windows.Forms.Label()
         Me.Label61 = New System.Windows.Forms.Label()
@@ -198,6 +191,7 @@ Partial Class Pressure
         Me.channelkUdelTF = New System.Windows.Forms.TextBox()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.autotemp = New System.Windows.Forms.CheckBox()
         Me.Label78 = New System.Windows.Forms.Label()
         Me.Label105 = New System.Windows.Forms.Label()
         Me.Label99 = New System.Windows.Forms.Label()
@@ -229,6 +223,34 @@ Partial Class Pressure
         Me.LogTF = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.TabControl3 = New System.Windows.Forms.TabControl()
+        Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.endKoefTF = New System.Windows.Forms.TextBox()
+        Me.Label137 = New System.Windows.Forms.Label()
+        Me.Label136 = New System.Windows.Forms.Label()
+        Me.endKatodKoefTF = New System.Windows.Forms.TextBox()
+        Me.Label135 = New System.Windows.Forms.Label()
+        Me.heatingConstKoefTF = New System.Windows.Forms.TextBox()
+        Me.Label134 = New System.Windows.Forms.Label()
+        Me.katodRisingKoefTF = New System.Windows.Forms.TextBox()
+        Me.Label133 = New System.Windows.Forms.Label()
+        Me.hightTempTimeKoefTF = New System.Windows.Forms.TextBox()
+        Me.Label131 = New System.Windows.Forms.Label()
+        Me.heatingKoefTF = New System.Windows.Forms.TextBox()
+        Me.Label130 = New System.Windows.Forms.Label()
+        Me.vakPreHeatKoefTF = New System.Windows.Forms.TextBox()
+        Me.Label132 = New System.Windows.Forms.Label()
+        Me.Label129 = New System.Windows.Forms.Label()
+        Me.worvakKoefTF = New System.Windows.Forms.TextBox()
+        Me.Label128 = New System.Windows.Forms.Label()
+        Me.tEndSavingTF = New System.Windows.Forms.TextBox()
+        Me.Label127 = New System.Windows.Forms.Label()
+        Me.tBeginSavingTF = New System.Windows.Forms.TextBox()
+        Me.Label125 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -248,22 +270,26 @@ Partial Class Pressure
         Me.Panel7.SuspendLayout()
         Me.TabPage9.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        Me.TabControl3.SuspendLayout()
+        Me.TabPage10.SuspendLayout()
+        Me.TabPage11.SuspendLayout()
+        Me.Panel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(16, 12)
+        Me.Button1.Location = New System.Drawing.Point(12, 12)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 100)
+        Me.Button1.Size = New System.Drawing.Size(145, 76)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Рассчитать"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(16, 118)
+        Me.Button2.Location = New System.Drawing.Point(12, 105)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 100)
+        Me.Button2.Size = New System.Drawing.Size(145, 64)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Стереть"
         Me.Button2.UseVisualStyleBackColor = True
@@ -274,7 +300,7 @@ Partial Class Pressure
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 262)
+        Me.TabControl1.Location = New System.Drawing.Point(8, 217)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(380, 200)
@@ -282,6 +308,8 @@ Partial Class Pressure
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label27)
+        Me.TabPage1.Controls.Add(Me.Label25)
         Me.TabPage1.Controls.Add(Me.EndGraphTimeTF)
         Me.TabPage1.Controls.Add(Me.BeginGraphTimeTF)
         Me.TabPage1.Controls.Add(Me.HeightBoxTF)
@@ -298,23 +326,41 @@ Partial Class Pressure
         Me.TabPage1.Text = "Настройка графика"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(311, 127)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(28, 13)
+        Me.Label27.TabIndex = 2
+        Me.Label27.Text = "сек."
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(312, 71)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(28, 13)
+        Me.Label25.TabIndex = 2
+        Me.Label25.Text = "сек."
+        '
         'EndGraphTimeTF
         '
-        Me.EndGraphTimeTF.Location = New System.Drawing.Point(216, 124)
+        Me.EndGraphTimeTF.Location = New System.Drawing.Point(205, 124)
         Me.EndGraphTimeTF.Name = "EndGraphTimeTF"
         Me.EndGraphTimeTF.Size = New System.Drawing.Size(100, 20)
         Me.EndGraphTimeTF.TabIndex = 1
         '
         'BeginGraphTimeTF
         '
-        Me.BeginGraphTimeTF.Location = New System.Drawing.Point(216, 77)
+        Me.BeginGraphTimeTF.Location = New System.Drawing.Point(205, 68)
         Me.BeginGraphTimeTF.Name = "BeginGraphTimeTF"
         Me.BeginGraphTimeTF.Size = New System.Drawing.Size(100, 20)
         Me.BeginGraphTimeTF.TabIndex = 1
         '
         'HeightBoxTF
         '
-        Me.HeightBoxTF.Location = New System.Drawing.Point(301, 30)
+        Me.HeightBoxTF.Location = New System.Drawing.Point(290, 15)
         Me.HeightBoxTF.Name = "HeightBoxTF"
         Me.HeightBoxTF.Size = New System.Drawing.Size(56, 20)
         Me.HeightBoxTF.TabIndex = 1
@@ -322,7 +368,7 @@ Partial Class Pressure
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(25, 127)
+        Me.Label5.Location = New System.Drawing.Point(15, 127)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(146, 13)
         Me.Label5.TabIndex = 0
@@ -331,7 +377,7 @@ Partial Class Pressure
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(25, 80)
+        Me.Label2.Location = New System.Drawing.Point(15, 71)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(153, 13)
         Me.Label2.TabIndex = 0
@@ -339,7 +385,7 @@ Partial Class Pressure
         '
         'WidhtBoxTF
         '
-        Me.WidhtBoxTF.Location = New System.Drawing.Point(216, 30)
+        Me.WidhtBoxTF.Location = New System.Drawing.Point(205, 15)
         Me.WidhtBoxTF.Name = "WidhtBoxTF"
         Me.WidhtBoxTF.Size = New System.Drawing.Size(56, 20)
         Me.WidhtBoxTF.TabIndex = 1
@@ -348,7 +394,7 @@ Partial Class Pressure
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label3.Location = New System.Drawing.Point(278, 32)
+        Me.Label3.Location = New System.Drawing.Point(267, 17)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(15, 16)
         Me.Label3.TabIndex = 0
@@ -357,7 +403,7 @@ Partial Class Pressure
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(25, 33)
+        Me.Label1.Location = New System.Drawing.Point(15, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(92, 13)
         Me.Label1.TabIndex = 0
@@ -382,7 +428,6 @@ Partial Class Pressure
         Me.Panel1.Controls.Add(Me.Label23)
         Me.Panel1.Controls.Add(Me.Label22)
         Me.Panel1.Controls.Add(Me.Label20)
-        Me.Panel1.Controls.Add(Me.Label18)
         Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.MinFlowTF)
         Me.Panel1.Controls.Add(Me.Label21)
@@ -390,7 +435,6 @@ Partial Class Pressure
         Me.Panel1.Controls.Add(Me.Label17)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.Label16)
         Me.Panel1.Controls.Add(Me.BeginPressTF)
         Me.Panel1.Controls.Add(Me.AlphaTF)
         Me.Panel1.Controls.Add(Me.Label15)
@@ -407,11 +451,11 @@ Partial Class Pressure
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(282, 253)
+        Me.Label23.Location = New System.Drawing.Point(281, 249)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(39, 13)
+        Me.Label23.Size = New System.Drawing.Size(18, 13)
         Me.Label23.TabIndex = 1
-        Me.Label23.Text = "Label4"
+        Me.Label23.Text = "°К"
         '
         'Label22
         '
@@ -427,25 +471,16 @@ Partial Class Pressure
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(282, 199)
+        Me.Label20.Location = New System.Drawing.Point(281, 203)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(39, 13)
+        Me.Label20.Size = New System.Drawing.Size(18, 13)
         Me.Label20.TabIndex = 1
-        Me.Label20.Text = "Label4"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(282, 142)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(39, 13)
-        Me.Label18.TabIndex = 1
-        Me.Label18.Text = "Label4"
+        Me.Label20.Text = "°К"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(10, 48)
+        Me.Label13.Location = New System.Drawing.Point(15, 47)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(103, 26)
         Me.Label13.TabIndex = 1
@@ -453,7 +488,7 @@ Partial Class Pressure
         '
         'MinFlowTF
         '
-        Me.MinFlowTF.Location = New System.Drawing.Point(159, 48)
+        Me.MinFlowTF.Location = New System.Drawing.Point(159, 62)
         Me.MinFlowTF.Name = "MinFlowTF"
         Me.MinFlowTF.Size = New System.Drawing.Size(100, 20)
         Me.MinFlowTF.TabIndex = 0
@@ -461,7 +496,7 @@ Partial Class Pressure
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(10, 244)
+        Me.Label21.Location = New System.Drawing.Point(15, 240)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(123, 26)
         Me.Label21.TabIndex = 1
@@ -470,7 +505,7 @@ Partial Class Pressure
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(10, 196)
+        Me.Label19.Location = New System.Drawing.Point(15, 195)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(130, 26)
         Me.Label19.TabIndex = 1
@@ -479,7 +514,7 @@ Partial Class Pressure
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(10, 139)
+        Me.Label17.Location = New System.Drawing.Point(15, 137)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(104, 39)
         Me.Label17.TabIndex = 1
@@ -488,7 +523,7 @@ Partial Class Pressure
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 19)
+        Me.Label4.Location = New System.Drawing.Point(15, 15)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(113, 13)
         Me.Label4.TabIndex = 1
@@ -499,18 +534,9 @@ Partial Class Pressure
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(281, 19)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(39, 13)
+        Me.Label6.Size = New System.Drawing.Size(24, 13)
         Me.Label6.TabIndex = 1
-        Me.Label6.Text = "Label4"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(282, 97)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(39, 13)
-        Me.Label16.TabIndex = 1
-        Me.Label16.Text = "Label4"
+        Me.Label6.Text = "Па."
         '
         'BeginPressTF
         '
@@ -521,7 +547,7 @@ Partial Class Pressure
         '
         'AlphaTF
         '
-        Me.AlphaTF.Location = New System.Drawing.Point(159, 94)
+        Me.AlphaTF.Location = New System.Drawing.Point(159, 108)
         Me.AlphaTF.Name = "AlphaTF"
         Me.AlphaTF.Size = New System.Drawing.Size(100, 20)
         Me.AlphaTF.TabIndex = 0
@@ -529,7 +555,7 @@ Partial Class Pressure
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(10, 94)
+        Me.Label15.Location = New System.Drawing.Point(15, 92)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(77, 26)
         Me.Label15.TabIndex = 1
@@ -537,21 +563,21 @@ Partial Class Pressure
         '
         'TempEndTF
         '
-        Me.TempEndTF.Location = New System.Drawing.Point(159, 250)
+        Me.TempEndTF.Location = New System.Drawing.Point(159, 246)
         Me.TempEndTF.Name = "TempEndTF"
         Me.TempEndTF.Size = New System.Drawing.Size(100, 20)
         Me.TempEndTF.TabIndex = 0
         '
         'TempBeginTF
         '
-        Me.TempBeginTF.Location = New System.Drawing.Point(159, 196)
+        Me.TempBeginTF.Location = New System.Drawing.Point(159, 200)
         Me.TempBeginTF.Name = "TempBeginTF"
         Me.TempBeginTF.Size = New System.Drawing.Size(100, 20)
         Me.TempBeginTF.TabIndex = 0
         '
         'HKoefTF
         '
-        Me.HKoefTF.Location = New System.Drawing.Point(159, 139)
+        Me.HKoefTF.Location = New System.Drawing.Point(159, 154)
         Me.HKoefTF.Name = "HKoefTF"
         Me.HKoefTF.Size = New System.Drawing.Size(100, 20)
         Me.HKoefTF.TabIndex = 0
@@ -559,11 +585,11 @@ Partial Class Pressure
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(282, 51)
+        Me.Label14.Location = New System.Drawing.Point(281, 47)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(39, 13)
+        Me.Label14.Size = New System.Drawing.Size(27, 39)
         Me.Label14.TabIndex = 1
-        Me.Label14.Text = "Label4"
+        Me.Label14.Text = "м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "-----" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  с" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'TabPage5
         '
@@ -579,14 +605,7 @@ Partial Class Pressure
         'Panel2
         '
         Me.Panel2.AutoScroll = True
-        Me.Panel2.Controls.Add(Me.Label39)
-        Me.Panel2.Controls.Add(Me.Label37)
-        Me.Panel2.Controls.Add(Me.Label35)
-        Me.Panel2.Controls.Add(Me.Label33)
-        Me.Panel2.Controls.Add(Me.Label31)
-        Me.Panel2.Controls.Add(Me.Label29)
-        Me.Panel2.Controls.Add(Me.Label27)
-        Me.Panel2.Controls.Add(Me.Label25)
+        Me.Panel2.Controls.Add(Me.ComboBox3)
         Me.Panel2.Controls.Add(Me.Label40)
         Me.Panel2.Controls.Add(Me.Label38)
         Me.Panel2.Controls.Add(Me.Label36)
@@ -602,6 +621,7 @@ Partial Class Pressure
         Me.Panel2.Controls.Add(Me.tEndHeatRisingTF)
         Me.Panel2.Controls.Add(Me.Label26)
         Me.Panel2.Controls.Add(Me.tStartHeatRisingTF)
+        Me.Panel2.Controls.Add(Me.Label138)
         Me.Panel2.Controls.Add(Me.Label24)
         Me.Panel2.Controls.Add(Me.t1TF)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
@@ -610,83 +630,20 @@ Partial Class Pressure
         Me.Panel2.Size = New System.Drawing.Size(366, 168)
         Me.Panel2.TabIndex = 7
         '
-        'Label39
+        'ComboBox3
         '
-        Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(252, 329)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(45, 13)
-        Me.Label39.TabIndex = 1
-        Me.Label39.Text = "Label24"
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(252, 290)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(45, 13)
-        Me.Label37.TabIndex = 1
-        Me.Label37.Text = "Label24"
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(252, 247)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(45, 13)
-        Me.Label35.TabIndex = 1
-        Me.Label35.Text = "Label24"
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(252, 203)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(45, 13)
-        Me.Label33.TabIndex = 1
-        Me.Label33.Text = "Label24"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(252, 159)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(45, 13)
-        Me.Label31.TabIndex = 1
-        Me.Label31.Text = "Label24"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(252, 112)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(45, 13)
-        Me.Label29.TabIndex = 1
-        Me.Label29.Text = "Label24"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(252, 74)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(45, 13)
-        Me.Label27.TabIndex = 1
-        Me.Label27.Text = "Label24"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(252, 27)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(45, 13)
-        Me.Label25.TabIndex = 1
-        Me.Label25.Text = "Label24"
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Items.AddRange(New Object() {"Секунды", "Минуты", "Часы"})
+        Me.ComboBox3.Location = New System.Drawing.Point(186, 13)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(100, 21)
+        Me.ComboBox3.TabIndex = 2
         '
         'Label40
         '
         Me.Label40.AutoSize = True
         Me.Label40.Enabled = False
-        Me.Label40.Location = New System.Drawing.Point(88, 346)
+        Me.Label40.Location = New System.Drawing.Point(98, 374)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(45, 13)
         Me.Label40.TabIndex = 1
@@ -696,7 +653,7 @@ Partial Class Pressure
         'Label38
         '
         Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(16, 326)
+        Me.Label38.Location = New System.Drawing.Point(15, 345)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(96, 26)
         Me.Label38.TabIndex = 1
@@ -705,7 +662,7 @@ Partial Class Pressure
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(16, 285)
+        Me.Label36.Location = New System.Drawing.Point(15, 307)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(103, 26)
         Me.Label36.TabIndex = 1
@@ -714,7 +671,7 @@ Partial Class Pressure
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(16, 244)
+        Me.Label34.Location = New System.Drawing.Point(15, 269)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(106, 26)
         Me.Label34.TabIndex = 1
@@ -722,21 +679,21 @@ Partial Class Pressure
         '
         'tEndTF
         '
-        Me.tEndTF.Location = New System.Drawing.Point(139, 326)
+        Me.tEndTF.Location = New System.Drawing.Point(186, 352)
         Me.tEndTF.Name = "tEndTF"
         Me.tEndTF.Size = New System.Drawing.Size(100, 20)
         Me.tEndTF.TabIndex = 0
         '
         'tKatodDisactivateTF
         '
-        Me.tKatodDisactivateTF.Location = New System.Drawing.Point(139, 287)
+        Me.tKatodDisactivateTF.Location = New System.Drawing.Point(186, 313)
         Me.tKatodDisactivateTF.Name = "tKatodDisactivateTF"
         Me.tKatodDisactivateTF.Size = New System.Drawing.Size(100, 20)
         Me.tKatodDisactivateTF.TabIndex = 0
         '
         'tEndHeatingTF
         '
-        Me.tEndHeatingTF.Location = New System.Drawing.Point(139, 244)
+        Me.tEndHeatingTF.Location = New System.Drawing.Point(186, 270)
         Me.tEndHeatingTF.Name = "tEndHeatingTF"
         Me.tEndHeatingTF.Size = New System.Drawing.Size(100, 20)
         Me.tEndHeatingTF.TabIndex = 0
@@ -744,7 +701,7 @@ Partial Class Pressure
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(16, 191)
+        Me.Label32.Location = New System.Drawing.Point(15, 218)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(105, 39)
         Me.Label32.TabIndex = 1
@@ -752,7 +709,7 @@ Partial Class Pressure
         '
         'tKatodActiveTF
         '
-        Me.tKatodActiveTF.Location = New System.Drawing.Point(139, 200)
+        Me.tKatodActiveTF.Location = New System.Drawing.Point(186, 226)
         Me.tKatodActiveTF.Name = "tKatodActiveTF"
         Me.tKatodActiveTF.Size = New System.Drawing.Size(100, 20)
         Me.tKatodActiveTF.TabIndex = 0
@@ -760,7 +717,7 @@ Partial Class Pressure
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(16, 156)
+        Me.Label30.Location = New System.Drawing.Point(15, 180)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(96, 26)
         Me.Label30.TabIndex = 1
@@ -768,7 +725,7 @@ Partial Class Pressure
         '
         'tKatodActivateTF
         '
-        Me.tKatodActivateTF.Location = New System.Drawing.Point(139, 156)
+        Me.tKatodActivateTF.Location = New System.Drawing.Point(186, 182)
         Me.tKatodActivateTF.Name = "tKatodActivateTF"
         Me.tKatodActivateTF.Size = New System.Drawing.Size(100, 20)
         Me.tKatodActivateTF.TabIndex = 0
@@ -776,7 +733,7 @@ Partial Class Pressure
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(16, 105)
+        Me.Label28.Location = New System.Drawing.Point(15, 129)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(102, 39)
         Me.Label28.TabIndex = 1
@@ -784,7 +741,7 @@ Partial Class Pressure
         '
         'tEndHeatRisingTF
         '
-        Me.tEndHeatRisingTF.Location = New System.Drawing.Point(139, 105)
+        Me.tEndHeatRisingTF.Location = New System.Drawing.Point(186, 131)
         Me.tEndHeatRisingTF.Name = "tEndHeatRisingTF"
         Me.tEndHeatRisingTF.Size = New System.Drawing.Size(100, 20)
         Me.tEndHeatRisingTF.TabIndex = 0
@@ -792,7 +749,7 @@ Partial Class Pressure
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(16, 71)
+        Me.Label26.Location = New System.Drawing.Point(15, 91)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(97, 26)
         Me.Label26.TabIndex = 1
@@ -800,15 +757,24 @@ Partial Class Pressure
         '
         'tStartHeatRisingTF
         '
-        Me.tStartHeatRisingTF.Location = New System.Drawing.Point(139, 71)
+        Me.tStartHeatRisingTF.Location = New System.Drawing.Point(186, 97)
         Me.tStartHeatRisingTF.Name = "tStartHeatRisingTF"
         Me.tStartHeatRisingTF.Size = New System.Drawing.Size(100, 20)
         Me.tStartHeatRisingTF.TabIndex = 0
         '
+        'Label138
+        '
+        Me.Label138.AutoSize = True
+        Me.Label138.Location = New System.Drawing.Point(15, 15)
+        Me.Label138.Name = "Label138"
+        Me.Label138.Size = New System.Drawing.Size(104, 26)
+        Me.Label138.TabIndex = 1
+        Me.Label138.Text = "Выбор временного" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "режима"
+        '
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(16, 24)
+        Me.Label24.Location = New System.Drawing.Point(15, 53)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(105, 26)
         Me.Label24.TabIndex = 1
@@ -816,7 +782,7 @@ Partial Class Pressure
         '
         't1TF
         '
-        Me.t1TF.Location = New System.Drawing.Point(139, 24)
+        Me.t1TF.Location = New System.Drawing.Point(186, 50)
         Me.t1TF.Name = "t1TF"
         Me.t1TF.Size = New System.Drawing.Size(100, 20)
         Me.t1TF.TabIndex = 0
@@ -868,20 +834,20 @@ Partial Class Pressure
         'Label54
         '
         Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(257, 288)
+        Me.Label54.Location = New System.Drawing.Point(257, 281)
         Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(45, 13)
+        Me.Label54.Size = New System.Drawing.Size(15, 13)
         Me.Label54.TabIndex = 1
-        Me.Label54.Text = "Label41"
+        Me.Label54.Text = "м"
         '
         'Label47
         '
         Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(257, 100)
+        Me.Label47.Location = New System.Drawing.Point(257, 99)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(45, 13)
+        Me.Label47.Size = New System.Drawing.Size(15, 13)
         Me.Label47.TabIndex = 1
-        Me.Label47.Text = "Label41"
+        Me.Label47.Text = "м"
         '
         'Label57
         '
@@ -899,45 +865,45 @@ Partial Class Pressure
         Me.Label56.AutoSize = True
         Me.Label56.Location = New System.Drawing.Point(257, 371)
         Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(45, 13)
+        Me.Label56.Size = New System.Drawing.Size(24, 13)
         Me.Label56.TabIndex = 1
-        Me.Label56.Text = "Label41"
+        Me.Label56.Text = "Па."
         '
         'Label53
         '
         Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(257, 338)
+        Me.Label53.Location = New System.Drawing.Point(257, 326)
         Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(45, 13)
+        Me.Label53.Size = New System.Drawing.Size(30, 13)
         Me.Label53.TabIndex = 1
-        Me.Label53.Text = "Label41"
+        Me.Label53.Text = "л / с"
         '
         'Label45
         '
         Me.Label45.AutoSize = True
         Me.Label45.Location = New System.Drawing.Point(257, 150)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(45, 13)
+        Me.Label45.Size = New System.Drawing.Size(24, 13)
         Me.Label45.TabIndex = 1
-        Me.Label45.Text = "Label41"
+        Me.Label45.Text = "л/с"
         '
         'Label52
         '
         Me.Label52.AutoSize = True
         Me.Label52.Location = New System.Drawing.Point(257, 236)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(45, 13)
+        Me.Label52.Size = New System.Drawing.Size(33, 13)
         Me.Label52.TabIndex = 1
-        Me.Label52.Text = "Label41"
+        Me.Label52.Text = "м ^ 2"
         '
         'Label42
         '
         Me.Label42.AutoSize = True
         Me.Label42.Location = New System.Drawing.Point(257, 48)
         Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(45, 13)
+        Me.Label42.Size = New System.Drawing.Size(33, 13)
         Me.Label42.TabIndex = 1
-        Me.Label42.Text = "Label41"
+        Me.Label42.Text = "м ^ 2"
         '
         'Label55
         '
@@ -1029,14 +995,14 @@ Partial Class Pressure
         '
         's2TF
         '
-        Me.s2TF.Location = New System.Drawing.Point(131, 335)
+        Me.s2TF.Location = New System.Drawing.Point(131, 323)
         Me.s2TF.Name = "s2TF"
         Me.s2TF.Size = New System.Drawing.Size(100, 20)
         Me.s2TF.TabIndex = 0
         '
         'l2TF
         '
-        Me.l2TF.Location = New System.Drawing.Point(131, 285)
+        Me.l2TF.Location = New System.Drawing.Point(131, 278)
         Me.l2TF.Name = "l2TF"
         Me.l2TF.Size = New System.Drawing.Size(100, 20)
         Me.l2TF.TabIndex = 0
@@ -1057,7 +1023,7 @@ Partial Class Pressure
         '
         'l1TF
         '
-        Me.l1TF.Location = New System.Drawing.Point(131, 97)
+        Me.l1TF.Location = New System.Drawing.Point(131, 96)
         Me.l1TF.Name = "l1TF"
         Me.l1TF.Size = New System.Drawing.Size(100, 20)
         Me.l1TF.TabIndex = 0
@@ -1076,7 +1042,7 @@ Partial Class Pressure
         Me.TabControl2.Controls.Add(Me.TabPage7)
         Me.TabControl2.Controls.Add(Me.TabPage8)
         Me.TabControl2.Controls.Add(Me.TabPage9)
-        Me.TabControl2.Location = New System.Drawing.Point(392, 262)
+        Me.TabControl2.Location = New System.Drawing.Point(388, 217)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
         Me.TabControl2.Size = New System.Drawing.Size(380, 200)
@@ -1099,10 +1065,9 @@ Partial Class Pressure
         Me.Panel4.Controls.Add(Me.Label7)
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Controls.Add(Me.Label9)
-        Me.Panel4.Controls.Add(Me.Label10)
         Me.Panel4.Controls.Add(Me.Label11)
+        Me.Panel4.Controls.Add(Me.Label10)
         Me.Panel4.Controls.Add(Me.Label12)
-        Me.Panel4.Controls.Add(Me.Label58)
         Me.Panel4.Controls.Add(Me.Label59)
         Me.Panel4.Controls.Add(Me.Label60)
         Me.Panel4.Controls.Add(Me.Label61)
@@ -1137,59 +1102,50 @@ Partial Class Pressure
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(268, 399)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 13)
+        Me.Label8.Size = New System.Drawing.Size(36, 13)
         Me.Label8.TabIndex = 1
-        Me.Label8.Text = "Label7"
+        Me.Label8.Text = "м  ^ 3"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(268, 355)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(39, 13)
+        Me.Label9.Size = New System.Drawing.Size(33, 13)
         Me.Label9.TabIndex = 1
-        Me.Label9.Text = "Label7"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(268, 268)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(39, 13)
-        Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Label7"
+        Me.Label9.Text = "м ^ 2"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(268, 190)
+        Me.Label11.Location = New System.Drawing.Point(268, 105)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(39, 13)
         Me.Label11.TabIndex = 1
         Me.Label11.Text = "Label7"
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(268, 258)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(45, 39)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(268, 108)
+        Me.Label12.Location = New System.Drawing.Point(268, 183)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(39, 13)
+        Me.Label12.Size = New System.Drawing.Size(45, 39)
         Me.Label12.TabIndex = 1
-        Me.Label12.Text = "Label7"
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.Location = New System.Drawing.Point(268, 27)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(39, 13)
-        Me.Label58.TabIndex = 1
-        Me.Label58.Text = "Label7"
+        Me.Label12.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Label59
         '
         Me.Label59.AutoSize = True
-        Me.Label59.Location = New System.Drawing.Point(27, 268)
+        Me.Label59.Location = New System.Drawing.Point(15, 267)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(115, 65)
         Me.Label59.TabIndex = 1
@@ -1198,7 +1154,7 @@ Partial Class Pressure
         'Label60
         '
         Me.Label60.AutoSize = True
-        Me.Label60.Location = New System.Drawing.Point(27, 396)
+        Me.Label60.Location = New System.Drawing.Point(15, 396)
         Me.Label60.Name = "Label60"
         Me.Label60.Size = New System.Drawing.Size(42, 13)
         Me.Label60.TabIndex = 1
@@ -1207,7 +1163,7 @@ Partial Class Pressure
         'Label61
         '
         Me.Label61.AutoSize = True
-        Me.Label61.Location = New System.Drawing.Point(27, 352)
+        Me.Label61.Location = New System.Drawing.Point(15, 351)
         Me.Label61.Name = "Label61"
         Me.Label61.Size = New System.Drawing.Size(71, 26)
         Me.Label61.TabIndex = 1
@@ -1216,7 +1172,7 @@ Partial Class Pressure
         'Label62
         '
         Me.Label62.AutoSize = True
-        Me.Label62.Location = New System.Drawing.Point(27, 190)
+        Me.Label62.Location = New System.Drawing.Point(15, 183)
         Me.Label62.Name = "Label62"
         Me.Label62.Size = New System.Drawing.Size(86, 65)
         Me.Label62.TabIndex = 1
@@ -1225,7 +1181,7 @@ Partial Class Pressure
         'Label63
         '
         Me.Label63.AutoSize = True
-        Me.Label63.Location = New System.Drawing.Point(27, 105)
+        Me.Label63.Location = New System.Drawing.Point(15, 99)
         Me.Label63.Name = "Label63"
         Me.Label63.Size = New System.Drawing.Size(115, 65)
         Me.Label63.TabIndex = 1
@@ -1234,7 +1190,7 @@ Partial Class Pressure
         'Label77
         '
         Me.Label77.AutoSize = True
-        Me.Label77.Location = New System.Drawing.Point(27, 27)
+        Me.Label77.Location = New System.Drawing.Point(15, 15)
         Me.Label77.Name = "Label77"
         Me.Label77.Size = New System.Drawing.Size(86, 65)
         Me.Label77.TabIndex = 1
@@ -1242,42 +1198,42 @@ Partial Class Pressure
         '
         'bodyvolumeTF
         '
-        Me.bodyvolumeTF.Location = New System.Drawing.Point(148, 399)
+        Me.bodyvolumeTF.Location = New System.Drawing.Point(150, 399)
         Me.bodyvolumeTF.Name = "bodyvolumeTF"
         Me.bodyvolumeTF.Size = New System.Drawing.Size(100, 20)
         Me.bodyvolumeTF.TabIndex = 0
         '
         'bodysquareTF
         '
-        Me.bodysquareTF.Location = New System.Drawing.Point(148, 355)
+        Me.bodysquareTF.Location = New System.Drawing.Point(150, 355)
         Me.bodysquareTF.Name = "bodysquareTF"
         Me.bodysquareTF.Size = New System.Drawing.Size(100, 20)
         Me.bodysquareTF.TabIndex = 0
         '
         'bodyqAfterHeatTF
         '
-        Me.bodyqAfterHeatTF.Location = New System.Drawing.Point(148, 268)
+        Me.bodyqAfterHeatTF.Location = New System.Drawing.Point(150, 268)
         Me.bodyqAfterHeatTF.Name = "bodyqAfterHeatTF"
         Me.bodyqAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.bodyqAfterHeatTF.TabIndex = 0
         '
         'bodyqUdelTF
         '
-        Me.bodyqUdelTF.Location = New System.Drawing.Point(148, 190)
+        Me.bodyqUdelTF.Location = New System.Drawing.Point(150, 190)
         Me.bodyqUdelTF.Name = "bodyqUdelTF"
         Me.bodyqUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.bodyqUdelTF.TabIndex = 0
         '
         'bodykAfterHeatTF
         '
-        Me.bodykAfterHeatTF.Location = New System.Drawing.Point(148, 105)
+        Me.bodykAfterHeatTF.Location = New System.Drawing.Point(150, 105)
         Me.bodykAfterHeatTF.Name = "bodykAfterHeatTF"
         Me.bodykAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.bodykAfterHeatTF.TabIndex = 0
         '
         'bodykUdelTF
         '
-        Me.bodykUdelTF.Location = New System.Drawing.Point(148, 24)
+        Me.bodykUdelTF.Location = New System.Drawing.Point(150, 25)
         Me.bodykUdelTF.Name = "bodykUdelTF"
         Me.bodykUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.bodykUdelTF.TabIndex = 0
@@ -1337,36 +1293,36 @@ Partial Class Pressure
         Me.Label64.AutoSize = True
         Me.Label64.Location = New System.Drawing.Point(268, 399)
         Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(39, 13)
+        Me.Label64.Size = New System.Drawing.Size(33, 13)
         Me.Label64.TabIndex = 1
-        Me.Label64.Text = "Label7"
+        Me.Label64.Text = "м ^ 3"
         '
         'Label65
         '
         Me.Label65.AutoSize = True
         Me.Label65.Location = New System.Drawing.Point(268, 355)
         Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(39, 13)
+        Me.Label65.Size = New System.Drawing.Size(33, 13)
         Me.Label65.TabIndex = 1
-        Me.Label65.Text = "Label7"
+        Me.Label65.Text = "м ^ 2"
         '
         'Label66
         '
         Me.Label66.AutoSize = True
-        Me.Label66.Location = New System.Drawing.Point(268, 268)
+        Me.Label66.Location = New System.Drawing.Point(268, 258)
         Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(39, 13)
+        Me.Label66.Size = New System.Drawing.Size(45, 39)
         Me.Label66.TabIndex = 1
-        Me.Label66.Text = "Label7"
+        Me.Label66.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label67
         '
         Me.Label67.AutoSize = True
-        Me.Label67.Location = New System.Drawing.Point(268, 190)
+        Me.Label67.Location = New System.Drawing.Point(268, 183)
         Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(39, 13)
+        Me.Label67.Size = New System.Drawing.Size(45, 39)
         Me.Label67.TabIndex = 1
-        Me.Label67.Text = "Label7"
+        Me.Label67.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label68
         '
@@ -1389,7 +1345,7 @@ Partial Class Pressure
         'Label70
         '
         Me.Label70.AutoSize = True
-        Me.Label70.Location = New System.Drawing.Point(27, 268)
+        Me.Label70.Location = New System.Drawing.Point(15, 267)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(115, 65)
         Me.Label70.TabIndex = 1
@@ -1398,7 +1354,7 @@ Partial Class Pressure
         'Label71
         '
         Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(27, 396)
+        Me.Label71.Location = New System.Drawing.Point(15, 396)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(42, 13)
         Me.Label71.TabIndex = 1
@@ -1407,7 +1363,7 @@ Partial Class Pressure
         'Label72
         '
         Me.Label72.AutoSize = True
-        Me.Label72.Location = New System.Drawing.Point(27, 352)
+        Me.Label72.Location = New System.Drawing.Point(15, 351)
         Me.Label72.Name = "Label72"
         Me.Label72.Size = New System.Drawing.Size(71, 26)
         Me.Label72.TabIndex = 1
@@ -1416,7 +1372,7 @@ Partial Class Pressure
         'Label73
         '
         Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(27, 190)
+        Me.Label73.Location = New System.Drawing.Point(15, 183)
         Me.Label73.Name = "Label73"
         Me.Label73.Size = New System.Drawing.Size(86, 65)
         Me.Label73.TabIndex = 1
@@ -1425,7 +1381,7 @@ Partial Class Pressure
         'Label74
         '
         Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(27, 105)
+        Me.Label74.Location = New System.Drawing.Point(15, 99)
         Me.Label74.Name = "Label74"
         Me.Label74.Size = New System.Drawing.Size(115, 65)
         Me.Label74.TabIndex = 1
@@ -1434,7 +1390,7 @@ Partial Class Pressure
         'Label75
         '
         Me.Label75.AutoSize = True
-        Me.Label75.Location = New System.Drawing.Point(27, 27)
+        Me.Label75.Location = New System.Drawing.Point(15, 15)
         Me.Label75.Name = "Label75"
         Me.Label75.Size = New System.Drawing.Size(86, 65)
         Me.Label75.TabIndex = 1
@@ -1442,42 +1398,42 @@ Partial Class Pressure
         '
         'drainvolumeTF
         '
-        Me.drainvolumeTF.Location = New System.Drawing.Point(148, 399)
+        Me.drainvolumeTF.Location = New System.Drawing.Point(150, 399)
         Me.drainvolumeTF.Name = "drainvolumeTF"
         Me.drainvolumeTF.Size = New System.Drawing.Size(100, 20)
         Me.drainvolumeTF.TabIndex = 0
         '
         'drainsquareTF
         '
-        Me.drainsquareTF.Location = New System.Drawing.Point(148, 355)
+        Me.drainsquareTF.Location = New System.Drawing.Point(150, 355)
         Me.drainsquareTF.Name = "drainsquareTF"
         Me.drainsquareTF.Size = New System.Drawing.Size(100, 20)
         Me.drainsquareTF.TabIndex = 0
         '
         'drainqAfterHeatTF
         '
-        Me.drainqAfterHeatTF.Location = New System.Drawing.Point(148, 268)
+        Me.drainqAfterHeatTF.Location = New System.Drawing.Point(150, 268)
         Me.drainqAfterHeatTF.Name = "drainqAfterHeatTF"
         Me.drainqAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.drainqAfterHeatTF.TabIndex = 0
         '
         'drainqUdelTF
         '
-        Me.drainqUdelTF.Location = New System.Drawing.Point(148, 190)
+        Me.drainqUdelTF.Location = New System.Drawing.Point(150, 190)
         Me.drainqUdelTF.Name = "drainqUdelTF"
         Me.drainqUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.drainqUdelTF.TabIndex = 0
         '
         'drainkAfterHeatTF
         '
-        Me.drainkAfterHeatTF.Location = New System.Drawing.Point(148, 105)
+        Me.drainkAfterHeatTF.Location = New System.Drawing.Point(150, 105)
         Me.drainkAfterHeatTF.Name = "drainkAfterHeatTF"
         Me.drainkAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.drainkAfterHeatTF.TabIndex = 0
         '
         'drainkUdelTF
         '
-        Me.drainkUdelTF.Location = New System.Drawing.Point(148, 24)
+        Me.drainkUdelTF.Location = New System.Drawing.Point(150, 25)
         Me.drainkUdelTF.Name = "drainkUdelTF"
         Me.drainkUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.drainkUdelTF.TabIndex = 0
@@ -1543,9 +1499,9 @@ Partial Class Pressure
         Me.Label107.AutoSize = True
         Me.Label107.Location = New System.Drawing.Point(268, 510)
         Me.Label107.Name = "Label107"
-        Me.Label107.Size = New System.Drawing.Size(39, 13)
+        Me.Label107.Size = New System.Drawing.Size(45, 13)
         Me.Label107.TabIndex = 1
-        Me.Label107.Text = "Label7"
+        Me.Label107.Text = "Па*м^3"
         '
         'Label108
         '
@@ -1559,38 +1515,38 @@ Partial Class Pressure
         'Label109
         '
         Me.Label109.AutoSize = True
-        Me.Label109.Location = New System.Drawing.Point(268, 399)
+        Me.Label109.Location = New System.Drawing.Point(268, 384)
         Me.Label109.Name = "Label109"
-        Me.Label109.Size = New System.Drawing.Size(39, 13)
+        Me.Label109.Size = New System.Drawing.Size(18, 13)
         Me.Label109.TabIndex = 1
-        Me.Label109.Text = "Label7"
+        Me.Label109.Text = "°К"
         '
         'Label110
         '
         Me.Label110.AutoSize = True
-        Me.Label110.Location = New System.Drawing.Point(268, 355)
+        Me.Label110.Location = New System.Drawing.Point(268, 343)
         Me.Label110.Name = "Label110"
-        Me.Label110.Size = New System.Drawing.Size(39, 13)
+        Me.Label110.Size = New System.Drawing.Size(33, 13)
         Me.Label110.TabIndex = 1
-        Me.Label110.Text = "Label7"
+        Me.Label110.Text = "м ^ 2"
         '
         'Label111
         '
         Me.Label111.AutoSize = True
-        Me.Label111.Location = New System.Drawing.Point(268, 268)
+        Me.Label111.Location = New System.Drawing.Point(268, 258)
         Me.Label111.Name = "Label111"
-        Me.Label111.Size = New System.Drawing.Size(39, 13)
+        Me.Label111.Size = New System.Drawing.Size(45, 39)
         Me.Label111.TabIndex = 1
-        Me.Label111.Text = "Label7"
+        Me.Label111.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label112
         '
         Me.Label112.AutoSize = True
-        Me.Label112.Location = New System.Drawing.Point(268, 190)
+        Me.Label112.Location = New System.Drawing.Point(268, 177)
         Me.Label112.Name = "Label112"
-        Me.Label112.Size = New System.Drawing.Size(39, 13)
+        Me.Label112.Size = New System.Drawing.Size(45, 39)
         Me.Label112.TabIndex = 1
-        Me.Label112.Text = "Label7"
+        Me.Label112.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label113
         '
@@ -1613,7 +1569,7 @@ Partial Class Pressure
         'Label115
         '
         Me.Label115.AutoSize = True
-        Me.Label115.Location = New System.Drawing.Point(27, 268)
+        Me.Label115.Location = New System.Drawing.Point(15, 258)
         Me.Label115.Name = "Label115"
         Me.Label115.Size = New System.Drawing.Size(115, 65)
         Me.Label115.TabIndex = 1
@@ -1622,7 +1578,7 @@ Partial Class Pressure
         'Label116
         '
         Me.Label116.AutoSize = True
-        Me.Label116.Location = New System.Drawing.Point(26, 507)
+        Me.Label116.Location = New System.Drawing.Point(15, 504)
         Me.Label116.Name = "Label116"
         Me.Label116.Size = New System.Drawing.Size(107, 78)
         Me.Label116.TabIndex = 1
@@ -1631,7 +1587,7 @@ Partial Class Pressure
         'Label117
         '
         Me.Label117.AutoSize = True
-        Me.Label117.Location = New System.Drawing.Point(27, 434)
+        Me.Label117.Location = New System.Drawing.Point(15, 423)
         Me.Label117.Name = "Label117"
         Me.Label117.Size = New System.Drawing.Size(127, 65)
         Me.Label117.TabIndex = 1
@@ -1640,7 +1596,7 @@ Partial Class Pressure
         'Label118
         '
         Me.Label118.AutoSize = True
-        Me.Label118.Location = New System.Drawing.Point(27, 396)
+        Me.Label118.Location = New System.Drawing.Point(15, 381)
         Me.Label118.Name = "Label118"
         Me.Label118.Size = New System.Drawing.Size(84, 26)
         Me.Label118.TabIndex = 1
@@ -1649,7 +1605,7 @@ Partial Class Pressure
         'Label119
         '
         Me.Label119.AutoSize = True
-        Me.Label119.Location = New System.Drawing.Point(27, 352)
+        Me.Label119.Location = New System.Drawing.Point(15, 339)
         Me.Label119.Name = "Label119"
         Me.Label119.Size = New System.Drawing.Size(71, 26)
         Me.Label119.TabIndex = 1
@@ -1658,7 +1614,7 @@ Partial Class Pressure
         'Label120
         '
         Me.Label120.AutoSize = True
-        Me.Label120.Location = New System.Drawing.Point(27, 190)
+        Me.Label120.Location = New System.Drawing.Point(15, 177)
         Me.Label120.Name = "Label120"
         Me.Label120.Size = New System.Drawing.Size(86, 65)
         Me.Label120.TabIndex = 1
@@ -1667,7 +1623,7 @@ Partial Class Pressure
         'Label121
         '
         Me.Label121.AutoSize = True
-        Me.Label121.Location = New System.Drawing.Point(27, 105)
+        Me.Label121.Location = New System.Drawing.Point(15, 96)
         Me.Label121.Name = "Label121"
         Me.Label121.Size = New System.Drawing.Size(115, 65)
         Me.Label121.TabIndex = 1
@@ -1676,7 +1632,7 @@ Partial Class Pressure
         'Label122
         '
         Me.Label122.AutoSize = True
-        Me.Label122.Location = New System.Drawing.Point(27, 27)
+        Me.Label122.Location = New System.Drawing.Point(15, 15)
         Me.Label122.Name = "Label122"
         Me.Label122.Size = New System.Drawing.Size(86, 65)
         Me.Label122.TabIndex = 1
@@ -1684,56 +1640,56 @@ Partial Class Pressure
         '
         'katodqMinTF
         '
-        Me.katodqMinTF.Location = New System.Drawing.Point(160, 507)
+        Me.katodqMinTF.Location = New System.Drawing.Point(150, 507)
         Me.katodqMinTF.Name = "katodqMinTF"
         Me.katodqMinTF.Size = New System.Drawing.Size(100, 20)
         Me.katodqMinTF.TabIndex = 0
         '
         'katodkMinTF
         '
-        Me.katodkMinTF.Location = New System.Drawing.Point(160, 434)
+        Me.katodkMinTF.Location = New System.Drawing.Point(150, 434)
         Me.katodkMinTF.Name = "katodkMinTF"
         Me.katodkMinTF.Size = New System.Drawing.Size(100, 20)
         Me.katodkMinTF.TabIndex = 0
         '
         'katodtemperatureMaxTF
         '
-        Me.katodtemperatureMaxTF.Location = New System.Drawing.Point(160, 399)
+        Me.katodtemperatureMaxTF.Location = New System.Drawing.Point(150, 381)
         Me.katodtemperatureMaxTF.Name = "katodtemperatureMaxTF"
         Me.katodtemperatureMaxTF.Size = New System.Drawing.Size(100, 20)
         Me.katodtemperatureMaxTF.TabIndex = 0
         '
         'katodsquareTF
         '
-        Me.katodsquareTF.Location = New System.Drawing.Point(160, 355)
+        Me.katodsquareTF.Location = New System.Drawing.Point(150, 339)
         Me.katodsquareTF.Name = "katodsquareTF"
         Me.katodsquareTF.Size = New System.Drawing.Size(100, 20)
         Me.katodsquareTF.TabIndex = 0
         '
         'katodqAfterHeat
         '
-        Me.katodqAfterHeat.Location = New System.Drawing.Point(160, 268)
+        Me.katodqAfterHeat.Location = New System.Drawing.Point(150, 268)
         Me.katodqAfterHeat.Name = "katodqAfterHeat"
         Me.katodqAfterHeat.Size = New System.Drawing.Size(100, 20)
         Me.katodqAfterHeat.TabIndex = 0
         '
         'katodqUdelTF
         '
-        Me.katodqUdelTF.Location = New System.Drawing.Point(160, 190)
+        Me.katodqUdelTF.Location = New System.Drawing.Point(150, 190)
         Me.katodqUdelTF.Name = "katodqUdelTF"
         Me.katodqUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.katodqUdelTF.TabIndex = 0
         '
         'katodkAfterHeatTF
         '
-        Me.katodkAfterHeatTF.Location = New System.Drawing.Point(160, 105)
+        Me.katodkAfterHeatTF.Location = New System.Drawing.Point(150, 105)
         Me.katodkAfterHeatTF.Name = "katodkAfterHeatTF"
         Me.katodkAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.katodkAfterHeatTF.TabIndex = 0
         '
         'katodkUdelTF
         '
-        Me.katodkUdelTF.Location = New System.Drawing.Point(160, 24)
+        Me.katodkUdelTF.Location = New System.Drawing.Point(150, 25)
         Me.katodkUdelTF.Name = "katodkUdelTF"
         Me.katodkUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.katodkUdelTF.TabIndex = 0
@@ -1790,27 +1746,27 @@ Partial Class Pressure
         Me.Label93.AutoSize = True
         Me.Label93.Location = New System.Drawing.Point(268, 355)
         Me.Label93.Name = "Label93"
-        Me.Label93.Size = New System.Drawing.Size(39, 13)
+        Me.Label93.Size = New System.Drawing.Size(33, 13)
         Me.Label93.TabIndex = 1
-        Me.Label93.Text = "Label7"
+        Me.Label93.Text = "м ^ 2"
         '
         'Label94
         '
         Me.Label94.AutoSize = True
-        Me.Label94.Location = New System.Drawing.Point(268, 268)
+        Me.Label94.Location = New System.Drawing.Point(268, 258)
         Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(39, 13)
+        Me.Label94.Size = New System.Drawing.Size(45, 39)
         Me.Label94.TabIndex = 1
-        Me.Label94.Text = "Label7"
+        Me.Label94.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label95
         '
         Me.Label95.AutoSize = True
-        Me.Label95.Location = New System.Drawing.Point(268, 190)
+        Me.Label95.Location = New System.Drawing.Point(268, 183)
         Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(39, 13)
+        Me.Label95.Size = New System.Drawing.Size(45, 39)
         Me.Label95.TabIndex = 1
-        Me.Label95.Text = "Label7"
+        Me.Label95.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label96
         '
@@ -1833,7 +1789,7 @@ Partial Class Pressure
         'Label98
         '
         Me.Label98.AutoSize = True
-        Me.Label98.Location = New System.Drawing.Point(27, 268)
+        Me.Label98.Location = New System.Drawing.Point(15, 267)
         Me.Label98.Name = "Label98"
         Me.Label98.Size = New System.Drawing.Size(115, 65)
         Me.Label98.TabIndex = 1
@@ -1842,7 +1798,7 @@ Partial Class Pressure
         'Label100
         '
         Me.Label100.AutoSize = True
-        Me.Label100.Location = New System.Drawing.Point(27, 352)
+        Me.Label100.Location = New System.Drawing.Point(15, 351)
         Me.Label100.Name = "Label100"
         Me.Label100.Size = New System.Drawing.Size(71, 26)
         Me.Label100.TabIndex = 1
@@ -1851,7 +1807,7 @@ Partial Class Pressure
         'Label101
         '
         Me.Label101.AutoSize = True
-        Me.Label101.Location = New System.Drawing.Point(27, 190)
+        Me.Label101.Location = New System.Drawing.Point(15, 183)
         Me.Label101.Name = "Label101"
         Me.Label101.Size = New System.Drawing.Size(86, 65)
         Me.Label101.TabIndex = 1
@@ -1860,7 +1816,7 @@ Partial Class Pressure
         'Label102
         '
         Me.Label102.AutoSize = True
-        Me.Label102.Location = New System.Drawing.Point(27, 105)
+        Me.Label102.Location = New System.Drawing.Point(15, 99)
         Me.Label102.Name = "Label102"
         Me.Label102.Size = New System.Drawing.Size(115, 65)
         Me.Label102.TabIndex = 1
@@ -1869,7 +1825,7 @@ Partial Class Pressure
         'Label103
         '
         Me.Label103.AutoSize = True
-        Me.Label103.Location = New System.Drawing.Point(27, 27)
+        Me.Label103.Location = New System.Drawing.Point(15, 15)
         Me.Label103.Name = "Label103"
         Me.Label103.Size = New System.Drawing.Size(86, 65)
         Me.Label103.TabIndex = 1
@@ -1877,35 +1833,35 @@ Partial Class Pressure
         '
         'channelsquareTF
         '
-        Me.channelsquareTF.Location = New System.Drawing.Point(148, 355)
+        Me.channelsquareTF.Location = New System.Drawing.Point(150, 355)
         Me.channelsquareTF.Name = "channelsquareTF"
         Me.channelsquareTF.Size = New System.Drawing.Size(100, 20)
         Me.channelsquareTF.TabIndex = 0
         '
         'channelqAfterHeatTF
         '
-        Me.channelqAfterHeatTF.Location = New System.Drawing.Point(148, 268)
+        Me.channelqAfterHeatTF.Location = New System.Drawing.Point(150, 268)
         Me.channelqAfterHeatTF.Name = "channelqAfterHeatTF"
         Me.channelqAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.channelqAfterHeatTF.TabIndex = 0
         '
         'channelqUdelTF
         '
-        Me.channelqUdelTF.Location = New System.Drawing.Point(148, 190)
+        Me.channelqUdelTF.Location = New System.Drawing.Point(150, 190)
         Me.channelqUdelTF.Name = "channelqUdelTF"
         Me.channelqUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.channelqUdelTF.TabIndex = 0
         '
         'channelkAfterHeatTF
         '
-        Me.channelkAfterHeatTF.Location = New System.Drawing.Point(148, 105)
+        Me.channelkAfterHeatTF.Location = New System.Drawing.Point(150, 105)
         Me.channelkAfterHeatTF.Name = "channelkAfterHeatTF"
         Me.channelkAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.channelkAfterHeatTF.TabIndex = 0
         '
         'channelkUdelTF
         '
-        Me.channelkUdelTF.Location = New System.Drawing.Point(148, 24)
+        Me.channelkUdelTF.Location = New System.Drawing.Point(150, 25)
         Me.channelkUdelTF.Name = "channelkUdelTF"
         Me.channelkUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.channelkUdelTF.TabIndex = 0
@@ -1924,6 +1880,7 @@ Partial Class Pressure
         'Panel6
         '
         Me.Panel6.AutoScroll = True
+        Me.Panel6.Controls.Add(Me.autotemp)
         Me.Panel6.Controls.Add(Me.Label78)
         Me.Panel6.Controls.Add(Me.Label105)
         Me.Panel6.Controls.Add(Me.Label99)
@@ -1958,6 +1915,16 @@ Partial Class Pressure
         Me.Panel6.Size = New System.Drawing.Size(366, 168)
         Me.Panel6.TabIndex = 7
         '
+        'autotemp
+        '
+        Me.autotemp.AutoSize = True
+        Me.autotemp.Location = New System.Drawing.Point(150, 398)
+        Me.autotemp.Name = "autotemp"
+        Me.autotemp.Size = New System.Drawing.Size(117, 17)
+        Me.autotemp.TabIndex = 2
+        Me.autotemp.Text = "авто температура"
+        Me.autotemp.UseVisualStyleBackColor = True
+        '
         'Label78
         '
         Me.Label78.AutoSize = True
@@ -1972,16 +1939,16 @@ Partial Class Pressure
         'Label105
         '
         Me.Label105.AutoSize = True
-        Me.Label105.Location = New System.Drawing.Point(268, 534)
+        Me.Label105.Location = New System.Drawing.Point(268, 533)
         Me.Label105.Name = "Label105"
-        Me.Label105.Size = New System.Drawing.Size(39, 13)
+        Me.Label105.Size = New System.Drawing.Size(45, 39)
         Me.Label105.TabIndex = 1
-        Me.Label105.Text = "Label7"
+        Me.Label105.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label99
         '
         Me.Label99.AutoSize = True
-        Me.Label99.Location = New System.Drawing.Point(268, 462)
+        Me.Label99.Location = New System.Drawing.Point(268, 471)
         Me.Label99.Name = "Label99"
         Me.Label99.Size = New System.Drawing.Size(39, 13)
         Me.Label99.TabIndex = 1
@@ -1990,47 +1957,47 @@ Partial Class Pressure
         'Label79
         '
         Me.Label79.AutoSize = True
-        Me.Label79.Location = New System.Drawing.Point(268, 423)
+        Me.Label79.Location = New System.Drawing.Point(268, 427)
         Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(39, 13)
+        Me.Label79.Size = New System.Drawing.Size(18, 13)
         Me.Label79.TabIndex = 1
-        Me.Label79.Text = "Label7"
+        Me.Label79.Text = "°К"
         '
         'Label124
         '
         Me.Label124.AutoSize = True
-        Me.Label124.Location = New System.Drawing.Point(268, 397)
+        Me.Label124.Location = New System.Drawing.Point(268, 370)
         Me.Label124.Name = "Label124"
-        Me.Label124.Size = New System.Drawing.Size(39, 13)
+        Me.Label124.Size = New System.Drawing.Size(33, 13)
         Me.Label124.TabIndex = 1
-        Me.Label124.Text = "Label7"
+        Me.Label124.Text = "м ^ 3"
         '
         'Label80
         '
         Me.Label80.AutoSize = True
-        Me.Label80.Location = New System.Drawing.Point(268, 355)
+        Me.Label80.Location = New System.Drawing.Point(268, 335)
         Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(39, 13)
+        Me.Label80.Size = New System.Drawing.Size(33, 13)
         Me.Label80.TabIndex = 1
-        Me.Label80.Text = "Label7"
+        Me.Label80.Text = "м ^ 2"
         '
         'Label81
         '
         Me.Label81.AutoSize = True
-        Me.Label81.Location = New System.Drawing.Point(268, 268)
+        Me.Label81.Location = New System.Drawing.Point(268, 260)
         Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(39, 13)
+        Me.Label81.Size = New System.Drawing.Size(45, 39)
         Me.Label81.TabIndex = 1
-        Me.Label81.Text = "Label7"
+        Me.Label81.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label82
         '
         Me.Label82.AutoSize = True
-        Me.Label82.Location = New System.Drawing.Point(268, 190)
+        Me.Label82.Location = New System.Drawing.Point(268, 175)
         Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(39, 13)
+        Me.Label82.Size = New System.Drawing.Size(45, 39)
         Me.Label82.TabIndex = 1
-        Me.Label82.Text = "Label7"
+        Me.Label82.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
         'Label83
         '
@@ -2053,7 +2020,7 @@ Partial Class Pressure
         'Label85
         '
         Me.Label85.AutoSize = True
-        Me.Label85.Location = New System.Drawing.Point(27, 268)
+        Me.Label85.Location = New System.Drawing.Point(15, 255)
         Me.Label85.Name = "Label85"
         Me.Label85.Size = New System.Drawing.Size(115, 65)
         Me.Label85.TabIndex = 1
@@ -2062,7 +2029,7 @@ Partial Class Pressure
         'Label104
         '
         Me.Label104.AutoSize = True
-        Me.Label104.Location = New System.Drawing.Point(26, 531)
+        Me.Label104.Location = New System.Drawing.Point(15, 534)
         Me.Label104.Name = "Label104"
         Me.Label104.Size = New System.Drawing.Size(107, 78)
         Me.Label104.TabIndex = 1
@@ -2072,7 +2039,7 @@ Partial Class Pressure
         'Label92
         '
         Me.Label92.AutoSize = True
-        Me.Label92.Location = New System.Drawing.Point(27, 458)
+        Me.Label92.Location = New System.Drawing.Point(15, 458)
         Me.Label92.Name = "Label92"
         Me.Label92.Size = New System.Drawing.Size(127, 65)
         Me.Label92.TabIndex = 1
@@ -2081,7 +2048,7 @@ Partial Class Pressure
         'Label86
         '
         Me.Label86.AutoSize = True
-        Me.Label86.Location = New System.Drawing.Point(27, 420)
+        Me.Label86.Location = New System.Drawing.Point(15, 421)
         Me.Label86.Name = "Label86"
         Me.Label86.Size = New System.Drawing.Size(84, 26)
         Me.Label86.TabIndex = 1
@@ -2090,7 +2057,7 @@ Partial Class Pressure
         'Label123
         '
         Me.Label123.AutoSize = True
-        Me.Label123.Location = New System.Drawing.Point(27, 394)
+        Me.Label123.Location = New System.Drawing.Point(15, 367)
         Me.Label123.Name = "Label123"
         Me.Label123.Size = New System.Drawing.Size(42, 13)
         Me.Label123.TabIndex = 1
@@ -2099,7 +2066,7 @@ Partial Class Pressure
         'Label87
         '
         Me.Label87.AutoSize = True
-        Me.Label87.Location = New System.Drawing.Point(27, 352)
+        Me.Label87.Location = New System.Drawing.Point(15, 335)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(71, 26)
         Me.Label87.TabIndex = 1
@@ -2108,7 +2075,7 @@ Partial Class Pressure
         'Label88
         '
         Me.Label88.AutoSize = True
-        Me.Label88.Location = New System.Drawing.Point(27, 190)
+        Me.Label88.Location = New System.Drawing.Point(15, 175)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(86, 65)
         Me.Label88.TabIndex = 1
@@ -2117,7 +2084,7 @@ Partial Class Pressure
         'Label89
         '
         Me.Label89.AutoSize = True
-        Me.Label89.Location = New System.Drawing.Point(27, 105)
+        Me.Label89.Location = New System.Drawing.Point(15, 95)
         Me.Label89.Name = "Label89"
         Me.Label89.Size = New System.Drawing.Size(115, 65)
         Me.Label89.TabIndex = 1
@@ -2126,7 +2093,7 @@ Partial Class Pressure
         'Label90
         '
         Me.Label90.AutoSize = True
-        Me.Label90.Location = New System.Drawing.Point(27, 27)
+        Me.Label90.Location = New System.Drawing.Point(15, 15)
         Me.Label90.Name = "Label90"
         Me.Label90.Size = New System.Drawing.Size(86, 65)
         Me.Label90.TabIndex = 1
@@ -2134,63 +2101,63 @@ Partial Class Pressure
         '
         'gunqMinTF
         '
-        Me.gunqMinTF.Location = New System.Drawing.Point(160, 531)
+        Me.gunqMinTF.Location = New System.Drawing.Point(150, 541)
         Me.gunqMinTF.Name = "gunqMinTF"
         Me.gunqMinTF.Size = New System.Drawing.Size(100, 20)
         Me.gunqMinTF.TabIndex = 0
         '
         'gunkMinTF
         '
-        Me.gunkMinTF.Location = New System.Drawing.Point(160, 458)
+        Me.gunkMinTF.Location = New System.Drawing.Point(150, 468)
         Me.gunkMinTF.Name = "gunkMinTF"
         Me.gunkMinTF.Size = New System.Drawing.Size(100, 20)
         Me.gunkMinTF.TabIndex = 0
         '
         'guntemperatureMaxTF
         '
-        Me.guntemperatureMaxTF.Location = New System.Drawing.Point(160, 423)
+        Me.guntemperatureMaxTF.Location = New System.Drawing.Point(150, 427)
         Me.guntemperatureMaxTF.Name = "guntemperatureMaxTF"
         Me.guntemperatureMaxTF.Size = New System.Drawing.Size(100, 20)
         Me.guntemperatureMaxTF.TabIndex = 0
         '
         'gunvolumeTF
         '
-        Me.gunvolumeTF.Location = New System.Drawing.Point(162, 391)
+        Me.gunvolumeTF.Location = New System.Drawing.Point(150, 367)
         Me.gunvolumeTF.Name = "gunvolumeTF"
         Me.gunvolumeTF.Size = New System.Drawing.Size(100, 20)
         Me.gunvolumeTF.TabIndex = 0
         '
         'gunsquareTF
         '
-        Me.gunsquareTF.Location = New System.Drawing.Point(160, 355)
+        Me.gunsquareTF.Location = New System.Drawing.Point(150, 335)
         Me.gunsquareTF.Name = "gunsquareTF"
         Me.gunsquareTF.Size = New System.Drawing.Size(100, 20)
         Me.gunsquareTF.TabIndex = 0
         '
         'gunqAfterHeatTF
         '
-        Me.gunqAfterHeatTF.Location = New System.Drawing.Point(160, 268)
+        Me.gunqAfterHeatTF.Location = New System.Drawing.Point(150, 268)
         Me.gunqAfterHeatTF.Name = "gunqAfterHeatTF"
         Me.gunqAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.gunqAfterHeatTF.TabIndex = 0
         '
         'gunqUdelTF
         '
-        Me.gunqUdelTF.Location = New System.Drawing.Point(159, 190)
+        Me.gunqUdelTF.Location = New System.Drawing.Point(150, 190)
         Me.gunqUdelTF.Name = "gunqUdelTF"
         Me.gunqUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.gunqUdelTF.TabIndex = 0
         '
         'gunkAfterHeatTF
         '
-        Me.gunkAfterHeatTF.Location = New System.Drawing.Point(160, 105)
+        Me.gunkAfterHeatTF.Location = New System.Drawing.Point(150, 105)
         Me.gunkAfterHeatTF.Name = "gunkAfterHeatTF"
         Me.gunkAfterHeatTF.Size = New System.Drawing.Size(100, 20)
         Me.gunkAfterHeatTF.TabIndex = 0
         '
         'gunkUdelTF
         '
-        Me.gunkUdelTF.Location = New System.Drawing.Point(160, 24)
+        Me.gunkUdelTF.Location = New System.Drawing.Point(150, 25)
         Me.gunkUdelTF.Name = "gunkUdelTF"
         Me.gunkUdelTF.Size = New System.Drawing.Size(100, 20)
         Me.gunkUdelTF.TabIndex = 0
@@ -2198,7 +2165,7 @@ Partial Class Pressure
         'LogTF
         '
         Me.LogTF.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.LogTF.Location = New System.Drawing.Point(12, 474)
+        Me.LogTF.Location = New System.Drawing.Point(8, 429)
         Me.LogTF.Multiline = True
         Me.LogTF.Name = "LogTF"
         Me.LogTF.ReadOnly = True
@@ -2209,28 +2176,280 @@ Partial Class Pressure
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(122, 12)
+        Me.Button3.Location = New System.Drawing.Point(29, 40)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 100)
+        Me.Button3.Size = New System.Drawing.Size(99, 41)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "Сохранить"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(16, 233)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 188)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(749, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(756, 23)
         Me.ProgressBar1.TabIndex = 7
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(156, 51)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(116, 21)
+        Me.ComboBox1.TabIndex = 8
+        '
+        'TabControl3
+        '
+        Me.TabControl3.Controls.Add(Me.TabPage10)
+        Me.TabControl3.Controls.Add(Me.TabPage11)
+        Me.TabControl3.Location = New System.Drawing.Point(450, 12)
+        Me.TabControl3.Name = "TabControl3"
+        Me.TabControl3.SelectedIndex = 0
+        Me.TabControl3.Size = New System.Drawing.Size(318, 157)
+        Me.TabControl3.TabIndex = 9
+        '
+        'TabPage10
+        '
+        Me.TabPage10.Controls.Add(Me.Button3)
+        Me.TabPage10.Controls.Add(Me.ComboBox1)
+        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage10.Name = "TabPage10"
+        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage10.Size = New System.Drawing.Size(310, 131)
+        Me.TabPage10.TabIndex = 0
+        Me.TabPage10.Text = "Сохранение"
+        Me.TabPage10.UseVisualStyleBackColor = True
+        '
+        'TabPage11
+        '
+        Me.TabPage11.Controls.Add(Me.Panel9)
+        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage11.Name = "TabPage11"
+        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage11.Size = New System.Drawing.Size(310, 131)
+        Me.TabPage11.TabIndex = 1
+        Me.TabPage11.Text = "Параметры сохранения"
+        Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'Panel9
+        '
+        Me.Panel9.AutoScroll = True
+        Me.Panel9.Controls.Add(Me.endKoefTF)
+        Me.Panel9.Controls.Add(Me.Label137)
+        Me.Panel9.Controls.Add(Me.Label136)
+        Me.Panel9.Controls.Add(Me.endKatodKoefTF)
+        Me.Panel9.Controls.Add(Me.Label135)
+        Me.Panel9.Controls.Add(Me.heatingConstKoefTF)
+        Me.Panel9.Controls.Add(Me.Label134)
+        Me.Panel9.Controls.Add(Me.katodRisingKoefTF)
+        Me.Panel9.Controls.Add(Me.Label133)
+        Me.Panel9.Controls.Add(Me.hightTempTimeKoefTF)
+        Me.Panel9.Controls.Add(Me.Label131)
+        Me.Panel9.Controls.Add(Me.heatingKoefTF)
+        Me.Panel9.Controls.Add(Me.Label130)
+        Me.Panel9.Controls.Add(Me.vakPreHeatKoefTF)
+        Me.Panel9.Controls.Add(Me.Label132)
+        Me.Panel9.Controls.Add(Me.Label129)
+        Me.Panel9.Controls.Add(Me.worvakKoefTF)
+        Me.Panel9.Controls.Add(Me.Label128)
+        Me.Panel9.Controls.Add(Me.tEndSavingTF)
+        Me.Panel9.Controls.Add(Me.Label127)
+        Me.Panel9.Controls.Add(Me.tBeginSavingTF)
+        Me.Panel9.Controls.Add(Me.Label125)
+        Me.Panel9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel9.Location = New System.Drawing.Point(3, 3)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(304, 125)
+        Me.Panel9.TabIndex = 10
+        '
+        'endKoefTF
+        '
+        Me.endKoefTF.Location = New System.Drawing.Point(173, 416)
+        Me.endKoefTF.Name = "endKoefTF"
+        Me.endKoefTF.Size = New System.Drawing.Size(100, 20)
+        Me.endKoefTF.TabIndex = 1
+        '
+        'Label137
+        '
+        Me.Label137.AutoSize = True
+        Me.Label137.Location = New System.Drawing.Point(15, 416)
+        Me.Label137.Name = "Label137"
+        Me.Label137.Size = New System.Drawing.Size(55, 39)
+        Me.Label137.TabIndex = 0
+        Me.Label137.Text = "Время" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "до конца " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "откачки"
+        '
+        'Label136
+        '
+        Me.Label136.AutoSize = True
+        Me.Label136.Enabled = False
+        Me.Label136.Location = New System.Drawing.Point(87, 457)
+        Me.Label136.Name = "Label136"
+        Me.Label136.Size = New System.Drawing.Size(51, 13)
+        Me.Label136.TabIndex = 0
+        Me.Label136.Text = "Label125"
+        Me.Label136.Visible = False
+        '
+        'endKatodKoefTF
+        '
+        Me.endKatodKoefTF.Location = New System.Drawing.Point(173, 365)
+        Me.endKatodKoefTF.Name = "endKatodKoefTF"
+        Me.endKatodKoefTF.Size = New System.Drawing.Size(100, 20)
+        Me.endKatodKoefTF.TabIndex = 1
+        '
+        'Label135
+        '
+        Me.Label135.AutoSize = True
+        Me.Label135.Location = New System.Drawing.Point(15, 365)
+        Me.Label135.Name = "Label135"
+        Me.Label135.Size = New System.Drawing.Size(70, 39)
+        Me.Label135.TabIndex = 0
+        Me.Label135.Text = "Время до" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "отключения " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "катода"
+        '
+        'heatingConstKoefTF
+        '
+        Me.heatingConstKoefTF.Location = New System.Drawing.Point(173, 320)
+        Me.heatingConstKoefTF.Name = "heatingConstKoefTF"
+        Me.heatingConstKoefTF.Size = New System.Drawing.Size(100, 20)
+        Me.heatingConstKoefTF.TabIndex = 1
+        '
+        'Label134
+        '
+        Me.Label134.AutoSize = True
+        Me.Label134.Location = New System.Drawing.Point(15, 314)
+        Me.Label134.Name = "Label134"
+        Me.Label134.Size = New System.Drawing.Size(67, 39)
+        Me.Label134.TabIndex = 0
+        Me.Label134.Text = "Время до" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "отключения" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "прогрева"
+        '
+        'katodRisingKoefTF
+        '
+        Me.katodRisingKoefTF.Location = New System.Drawing.Point(173, 289)
+        Me.katodRisingKoefTF.Name = "katodRisingKoefTF"
+        Me.katodRisingKoefTF.Size = New System.Drawing.Size(100, 20)
+        Me.katodRisingKoefTF.TabIndex = 1
+        '
+        'Label133
+        '
+        Me.Label133.AutoSize = True
+        Me.Label133.Location = New System.Drawing.Point(15, 289)
+        Me.Label133.Name = "Label133"
+        Me.Label133.Size = New System.Drawing.Size(77, 13)
+        Me.Label133.TabIndex = 0
+        Me.Label133.Text = "Накал катода"
+        '
+        'hightTempTimeKoefTF
+        '
+        Me.hightTempTimeKoefTF.Location = New System.Drawing.Point(173, 238)
+        Me.hightTempTimeKoefTF.Name = "hightTempTimeKoefTF"
+        Me.hightTempTimeKoefTF.Size = New System.Drawing.Size(100, 20)
+        Me.hightTempTimeKoefTF.TabIndex = 1
+        '
+        'Label131
+        '
+        Me.Label131.AutoSize = True
+        Me.Label131.Location = New System.Drawing.Point(15, 238)
+        Me.Label131.Name = "Label131"
+        Me.Label131.Size = New System.Drawing.Size(104, 39)
+        Me.Label131.TabIndex = 0
+        Me.Label131.Text = "Выдержка " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "при макисмальной" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "температуре"
+        '
+        'heatingKoefTF
+        '
+        Me.heatingKoefTF.Location = New System.Drawing.Point(173, 187)
+        Me.heatingKoefTF.Name = "heatingKoefTF"
+        Me.heatingKoefTF.Size = New System.Drawing.Size(100, 20)
+        Me.heatingKoefTF.TabIndex = 1
+        '
+        'Label130
+        '
+        Me.Label130.AutoSize = True
+        Me.Label130.Location = New System.Drawing.Point(15, 187)
+        Me.Label130.Name = "Label130"
+        Me.Label130.Size = New System.Drawing.Size(83, 39)
+        Me.Label130.TabIndex = 0
+        Me.Label130.Text = "Вакуумная во " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "время нагрева" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "камеры"
+        '
+        'vakPreHeatKoefTF
+        '
+        Me.vakPreHeatKoefTF.Location = New System.Drawing.Point(173, 155)
+        Me.vakPreHeatKoefTF.Name = "vakPreHeatKoefTF"
+        Me.vakPreHeatKoefTF.Size = New System.Drawing.Size(100, 20)
+        Me.vakPreHeatKoefTF.TabIndex = 1
+        '
+        'Label132
+        '
+        Me.Label132.AutoSize = True
+        Me.Label132.Location = New System.Drawing.Point(42, 100)
+        Me.Label132.Name = "Label132"
+        Me.Label132.Size = New System.Drawing.Size(231, 13)
+        Me.Label132.TabIndex = 0
+        Me.Label132.Text = "Число значений для разных этапов откачки"
+        '
+        'Label129
+        '
+        Me.Label129.AutoSize = True
+        Me.Label129.Location = New System.Drawing.Point(15, 149)
+        Me.Label129.Name = "Label129"
+        Me.Label129.Size = New System.Drawing.Size(65, 26)
+        Me.Label129.TabIndex = 0
+        Me.Label129.Text = "Вакуумная " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "до нагрева"
+        '
+        'worvakKoefTF
+        '
+        Me.worvakKoefTF.Location = New System.Drawing.Point(173, 126)
+        Me.worvakKoefTF.Name = "worvakKoefTF"
+        Me.worvakKoefTF.Size = New System.Drawing.Size(100, 20)
+        Me.worvakKoefTF.TabIndex = 1
+        '
+        'Label128
+        '
+        Me.Label128.AutoSize = True
+        Me.Label128.Location = New System.Drawing.Point(15, 124)
+        Me.Label128.Name = "Label128"
+        Me.Label128.Size = New System.Drawing.Size(84, 13)
+        Me.Label128.TabIndex = 0
+        Me.Label128.Text = "Форвакуумной" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'tEndSavingTF
+        '
+        Me.tEndSavingTF.Location = New System.Drawing.Point(173, 65)
+        Me.tEndSavingTF.Name = "tEndSavingTF"
+        Me.tEndSavingTF.Size = New System.Drawing.Size(100, 20)
+        Me.tEndSavingTF.TabIndex = 1
+        '
+        'Label127
+        '
+        Me.Label127.AutoSize = True
+        Me.Label127.Location = New System.Drawing.Point(15, 55)
+        Me.Label127.Name = "Label127"
+        Me.Label127.Size = New System.Drawing.Size(82, 26)
+        Me.Label127.TabIndex = 0
+        Me.Label127.Text = "Время конеца " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "сохранения"
+        '
+        'tBeginSavingTF
+        '
+        Me.tBeginSavingTF.Location = New System.Drawing.Point(173, 21)
+        Me.tBeginSavingTF.Name = "tBeginSavingTF"
+        Me.tBeginSavingTF.Size = New System.Drawing.Size(100, 20)
+        Me.tBeginSavingTF.TabIndex = 1
+        '
+        'Label125
+        '
+        Me.Label125.AutoSize = True
+        Me.Label125.Location = New System.Drawing.Point(15, 15)
+        Me.Label125.Name = "Label125"
+        Me.Label125.Size = New System.Drawing.Size(78, 26)
+        Me.Label125.TabIndex = 0
+        Me.Label125.Text = "Время начала" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "сохранения"
         '
         'Pressure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(784, 601)
+        Me.ClientSize = New System.Drawing.Size(780, 552)
+        Me.Controls.Add(Me.TabControl3)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.LogTF)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.TabControl2)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Button2)
@@ -2265,6 +2484,11 @@ Partial Class Pressure
         Me.TabPage9.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        Me.TabControl3.ResumeLayout(False)
+        Me.TabPage10.ResumeLayout(False)
+        Me.TabPage11.ResumeLayout(False)
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2291,9 +2515,7 @@ Partial Class Pressure
     Friend WithEvents TabPage6 As TabPage
     Friend WithEvents Label4 As Label
     Friend WithEvents BeginPressTF As TextBox
-    Friend WithEvents Label18 As Label
     Friend WithEvents Label17 As Label
-    Friend WithEvents Label16 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents HKoefTF As TextBox
@@ -2310,14 +2532,6 @@ Partial Class Pressure
     Friend WithEvents TempBeginTF As TextBox
     Friend WithEvents Label23 As Label
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Label39 As Label
-    Friend WithEvents Label37 As Label
-    Friend WithEvents Label35 As Label
-    Friend WithEvents Label33 As Label
-    Friend WithEvents Label31 As Label
-    Friend WithEvents Label29 As Label
-    Friend WithEvents Label27 As Label
-    Friend WithEvents Label25 As Label
     Friend WithEvents Label40 As Label
     Friend WithEvents Label38 As Label
     Friend WithEvents Label36 As Label
@@ -2341,7 +2555,6 @@ Partial Class Pressure
     Friend WithEvents Label41 As Label
     Friend WithEvents d1TF As TextBox
     Friend WithEvents Label47 As Label
-    Friend WithEvents Label45 As Label
     Friend WithEvents Label46 As Label
     Friend WithEvents Label44 As Label
     Friend WithEvents s1TF As TextBox
@@ -2387,10 +2600,8 @@ Partial Class Pressure
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents Label58 As Label
     Friend WithEvents Label59 As Label
     Friend WithEvents Label60 As Label
     Friend WithEvents Label61 As Label
@@ -2477,4 +2688,39 @@ Partial Class Pressure
     Friend WithEvents Label123 As Label
     Friend WithEvents gunvolumeTF As TextBox
     Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents TabControl3 As TabControl
+    Friend WithEvents TabPage10 As TabPage
+    Friend WithEvents TabPage11 As TabPage
+    Friend WithEvents Label125 As Label
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents hightTempTimeKoefTF As TextBox
+    Friend WithEvents Label131 As Label
+    Friend WithEvents heatingKoefTF As TextBox
+    Friend WithEvents Label130 As Label
+    Friend WithEvents vakPreHeatKoefTF As TextBox
+    Friend WithEvents Label129 As Label
+    Friend WithEvents worvakKoefTF As TextBox
+    Friend WithEvents Label128 As Label
+    Friend WithEvents tEndSavingTF As TextBox
+    Friend WithEvents Label127 As Label
+    Friend WithEvents tBeginSavingTF As TextBox
+    Friend WithEvents endKoefTF As TextBox
+    Friend WithEvents Label136 As Label
+    Friend WithEvents endKatodKoefTF As TextBox
+    Friend WithEvents Label135 As Label
+    Friend WithEvents heatingConstKoefTF As TextBox
+    Friend WithEvents Label134 As Label
+    Friend WithEvents katodRisingKoefTF As TextBox
+    Friend WithEvents Label133 As Label
+    Friend WithEvents Label132 As Label
+    Friend WithEvents Label137 As Label
+    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents Label138 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Label25 As Label
+    Private WithEvents Label45 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents autotemp As CheckBox
 End Class

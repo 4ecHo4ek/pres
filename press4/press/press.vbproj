@@ -106,6 +106,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="CalculatingAndStandartParams.vb" />
+    <Compile Include="SavingInExcel.vb" />
     <Compile Include="Unit.vb" />
     <Compile Include="WriteAndReadToFile.vb" />
   </ItemGroup>

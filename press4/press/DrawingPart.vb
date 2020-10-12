@@ -1,25 +1,33 @@
-﻿Public Class DrawingPart
+﻿
+<System.Serializable()> Public Structure PartsForDrawing
+    Dim height As Integer ' габариты экрана (const)
+    Dim width As Integer ' габариты экрана (const)
+    Dim tStart As Double ' начальный отрезок для отрисовки (const)
+    Dim tEnd As Double ' конечный отрезок для отрисовки (const)
 
-    <System.Serializable()> Structure PartsForDrawing
-        Dim height As Integer ' габариты экрана (const)
-        Dim width As Integer ' габариты экрана (const)
-        Dim tStart As Double ' начальный отрезок для отрисовки (const)
-        Dim tEnd As Double ' конечный отрезок для отрисовки (const)
+    Dim xDelta As Double ' начальное смещение для времени 
+    Dim hParam As Double ' коэф для нормирования 
+    Dim wParam As Double ' коэф для нормирования 
+    Dim pMax As Double ' максимальное давление
+    Dim pMin As Double ' минимальное давление
+    Dim countDraw As Integer ' счетчик для смены цвета
+End Structure
 
-        Dim xDelta As Double ' начальное смещение для времени 
-        Dim hParam As Double ' коэф для нормирования 
-        Dim wParam As Double ' коэф для нормирования 
-        Dim pMax As Double ' максимальное давление
-        Dim pMin As Double ' минимальное давление
-        Dim countDraw As Integer ' счетчик для смены цвета
-    End Structure
+<System.Serializable()> Public Structure PressureParams
+    Dim pMax As Double
+    Dim pMin As Double
+    Dim pressure() As Double
+    Dim t1 As Double
+    Dim tStartHeatRising As Double
+    Dim tEndHeatRising As Double
+    Dim tKatodActivate As Double
+    Dim tKatodActive As Double
+    Dim tEndHeating As Double
+    Dim tKatodDisactivate As Double
+    Dim tEnd As Double
+End Structure
 
-    <System.Serializable()> Structure PressureParams
-        Dim pMax As Double
-        Dim pMin As Double
-        Dim pressure() As Double
-    End Structure
-
+Public Class DrawingPart
 
     Function Draw()
 

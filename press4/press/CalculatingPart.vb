@@ -71,8 +71,9 @@
             text = "ошибка вычисления давления на " & CStr(t) & " cек."
             write.WriteLogs(text)
         End Try
-        Return pressure(data.tEnd)
         write.WriteLogs("Вычисления успешно завершены")
+        write.WriteToSavingPressureFile()
+        Return pressure(data.tEnd)
     End Function
 
     Function WritePressure(ByVal data As Data, ByVal pressure() As Double, ByVal time As Double, ByVal write As WriteAndReadToFile)
@@ -84,9 +85,9 @@
         End If
         name = "pressures\pressure" + CStr(calculationCount) + ".data"
         If time = data.tEndEndGraph Then
-            write.WritePressuer(pressure, name, data.tStartGraph, data.tEndEndGraph)
+            write.WritePressuer(pressure, name, data.tStartGraph, data.tEndEndGraph, data)
         Else
-            write.WritePressuer(pressure, name, data.tStartGraph, time)
+            write.WritePressuer(pressure, name, data.tStartGraph, time, data)
         End If
 
     End Function

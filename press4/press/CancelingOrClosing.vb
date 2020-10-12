@@ -17,5 +17,9 @@
         If IO.File.Exists("log.txt") Then
             IO.File.Delete("log.txt")
         End If
+
+        If IO.File.Exists("pressSaving.txt") Then
+            IO.File.Delete("pressSaving.txt")
+        End If
     End Function
 End Class
