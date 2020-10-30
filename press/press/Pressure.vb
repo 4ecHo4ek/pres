@@ -107,7 +107,7 @@
 
         saving = excel.MakeData(saving, f1)
         write.WriteForSaving(saving)
-        save.Filter = "Excel files *.xlsx|*.xlsx"
+        save.Filter = "*.xlsx|*.xlsx"
         If save.ShowDialog = DialogResult.Cancel Then
             Exit Sub
         End If
@@ -491,6 +491,9 @@
         If Not IsNumeric(tBeginSavingTF.Text) Then
             tBeginSavingTF.Text = tmp
         End If
+        If tEndSavingTF.Text <= tBeginSavingTF.Text Then
+            tEndSavingTF.Text = tBeginSavingTF.Text + 100
+        End If
     End Sub
     Private Sub tEndSavingTF_Leave(sender As Object, e As EventArgs) Handles tEndSavingTF.Leave
         Dim tmp = tEndTF.Text
@@ -500,6 +503,9 @@
         tEndSavingTF.Text = tEndSavingTF.Text.Replace(".", ",")
         If Not IsNumeric(tEndSavingTF.Text) Then
             tEndSavingTF.Text = tmp
+        End If
+        If tEndSavingTF.Text <= tBeginSavingTF.Text Then
+            tEndSavingTF.Text = tBeginSavingTF.Text + 100
         End If
     End Sub
     Private Sub worvakKoefTF_Leave(sender As Object, e As EventArgs) Handles worvakKoefTF.Leave
@@ -585,6 +591,9 @@
     Private Sub autotemp_CheckedChanged(sender As Object, e As EventArgs) Handles autotemp.CheckedChanged
         If autotemp.Checked = True Then
             guntemperatureMaxTF.Text = katodtemperatureMaxTF.Text * 0.8
+            guntemperatureMaxTF.Enabled = False
+        Else
+            guntemperatureMaxTF.Enabled = True
         End If
     End Sub
     Private Sub drainkUdelTF_Leave(sender As Object, e As EventArgs) Handles drainkUdelTF.Leave

@@ -278,7 +278,7 @@ Partial Class Pressure
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 12)
+        Me.Button1.Location = New System.Drawing.Point(12, 8)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(145, 76)
         Me.Button1.TabIndex = 0
@@ -287,7 +287,7 @@ Partial Class Pressure
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(12, 105)
+        Me.Button2.Location = New System.Drawing.Point(12, 100)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(145, 64)
         Me.Button2.TabIndex = 1
@@ -300,10 +300,10 @@ Partial Class Pressure
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
-        Me.TabControl1.Location = New System.Drawing.Point(8, 217)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 222)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(380, 200)
+        Me.TabControl1.Size = New System.Drawing.Size(370, 200)
         Me.TabControl1.TabIndex = 2
         '
         'TabPage1
@@ -321,7 +321,7 @@ Partial Class Pressure
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage1.Size = New System.Drawing.Size(362, 174)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Настройка графика"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -417,7 +417,7 @@ Partial Class Pressure
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage2.Size = New System.Drawing.Size(362, 174)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Начальные данные"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -445,7 +445,7 @@ Partial Class Pressure
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(366, 168)
+        Me.Panel1.Size = New System.Drawing.Size(356, 168)
         Me.Panel1.TabIndex = 0
         '
         'Label23
@@ -597,7 +597,7 @@ Partial Class Pressure
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage5.Size = New System.Drawing.Size(362, 174)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "Параметры времени"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -627,7 +627,7 @@ Partial Class Pressure
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(3, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(366, 168)
+        Me.Panel2.Size = New System.Drawing.Size(356, 168)
         Me.Panel2.TabIndex = 7
         '
         'ComboBox3
@@ -793,7 +793,7 @@ Partial Class Pressure
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage6.Size = New System.Drawing.Size(362, 174)
         Me.TabPage6.TabIndex = 3
         Me.TabPage6.Text = "Параметры насосов"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -828,7 +828,7 @@ Partial Class Pressure
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(3, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(366, 168)
+        Me.Panel3.Size = New System.Drawing.Size(356, 168)
         Me.Panel3.TabIndex = 7
         '
         'Label54
@@ -1042,10 +1042,10 @@ Partial Class Pressure
         Me.TabControl2.Controls.Add(Me.TabPage7)
         Me.TabControl2.Controls.Add(Me.TabPage8)
         Me.TabControl2.Controls.Add(Me.TabPage9)
-        Me.TabControl2.Location = New System.Drawing.Point(388, 217)
+        Me.TabControl2.Location = New System.Drawing.Point(402, 222)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(380, 200)
+        Me.TabControl2.Size = New System.Drawing.Size(370, 200)
         Me.TabControl2.TabIndex = 3
         '
         'TabPage3
@@ -1054,7 +1054,7 @@ Partial Class Pressure
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage3.Size = New System.Drawing.Size(362, 174)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Параметры корпуса"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1083,7 +1083,7 @@ Partial Class Pressure
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(3, 3)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(366, 168)
+        Me.Panel4.Size = New System.Drawing.Size(356, 168)
         Me.Panel4.TabIndex = 7
         '
         'Label7
@@ -1244,7 +1244,7 @@ Partial Class Pressure
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage4.Size = New System.Drawing.Size(362, 174)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Параметры коллектора"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1274,7 +1274,7 @@ Partial Class Pressure
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(3, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(366, 168)
+        Me.Panel5.Size = New System.Drawing.Size(356, 168)
         Me.Panel5.TabIndex = 7
         '
         'Label76
@@ -1444,7 +1444,7 @@ Partial Class Pressure
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage7.Size = New System.Drawing.Size(362, 174)
         Me.TabPage7.TabIndex = 2
         Me.TabPage7.Text = "Параметры катода"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -1480,7 +1480,7 @@ Partial Class Pressure
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel8.Location = New System.Drawing.Point(3, 3)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(366, 168)
+        Me.Panel8.Size = New System.Drawing.Size(356, 168)
         Me.Panel8.TabIndex = 7
         '
         'Label106
@@ -1700,7 +1700,7 @@ Partial Class Pressure
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage8.Size = New System.Drawing.Size(362, 174)
         Me.TabPage8.TabIndex = 3
         Me.TabPage8.Text = "Параметры пролетного канала"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -1727,7 +1727,7 @@ Partial Class Pressure
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel7.Location = New System.Drawing.Point(3, 3)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(366, 168)
+        Me.Panel7.Size = New System.Drawing.Size(356, 168)
         Me.Panel7.TabIndex = 7
         '
         'Label91
@@ -1872,7 +1872,7 @@ Partial Class Pressure
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(372, 174)
+        Me.TabPage9.Size = New System.Drawing.Size(362, 174)
         Me.TabPage9.TabIndex = 4
         Me.TabPage9.Text = "Параметры пушки"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -1912,7 +1912,7 @@ Partial Class Pressure
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(3, 3)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(366, 168)
+        Me.Panel6.Size = New System.Drawing.Size(356, 168)
         Me.Panel6.TabIndex = 7
         '
         'autotemp
@@ -2165,12 +2165,12 @@ Partial Class Pressure
         'LogTF
         '
         Me.LogTF.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.LogTF.Location = New System.Drawing.Point(8, 429)
+        Me.LogTF.Location = New System.Drawing.Point(12, 428)
         Me.LogTF.Multiline = True
         Me.LogTF.Name = "LogTF"
         Me.LogTF.ReadOnly = True
         Me.LogTF.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.LogTF.Size = New System.Drawing.Size(760, 115)
+        Me.LogTF.Size = New System.Drawing.Size(760, 121)
         Me.LogTF.TabIndex = 5
         Me.LogTF.TabStop = False
         '
@@ -2185,9 +2185,9 @@ Partial Class Pressure
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 188)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 186)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(756, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(760, 23)
         Me.ProgressBar1.TabIndex = 7
         '
         'ComboBox1
@@ -2202,7 +2202,7 @@ Partial Class Pressure
         '
         Me.TabControl3.Controls.Add(Me.TabPage10)
         Me.TabControl3.Controls.Add(Me.TabPage11)
-        Me.TabControl3.Location = New System.Drawing.Point(450, 12)
+        Me.TabControl3.Location = New System.Drawing.Point(454, 18)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
         Me.TabControl3.Size = New System.Drawing.Size(318, 157)
@@ -2446,7 +2446,7 @@ Partial Class Pressure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(780, 552)
+        Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.TabControl3)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.LogTF)
@@ -2454,6 +2454,9 @@ Partial Class Pressure
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(800, 600)
+        Me.MinimumSize = New System.Drawing.Size(800, 600)
         Me.Name = "Pressure"
         Me.Text = "Form1"
         Me.TabControl1.ResumeLayout(False)

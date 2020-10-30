@@ -46,8 +46,9 @@
         Dim pres = pressure.pressure
         Dim flag As Boolean = True
 
+        time = settings.tBeginSaving
         k = 1
-        While time < pressure.tEnd
+        While time < settings.tEndSaving
             If time < pressure.t1 And flag Then
                 exl.range("A" & k).value = "форврак. откачка"
                 tB = 0
