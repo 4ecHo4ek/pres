@@ -108,7 +108,6 @@ Partial Class Pressure
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label59 = New System.Windows.Forms.Label()
@@ -130,8 +129,6 @@ Partial Class Pressure
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label66 = New System.Windows.Forms.Label()
         Me.Label67 = New System.Windows.Forms.Label()
-        Me.Label68 = New System.Windows.Forms.Label()
-        Me.Label69 = New System.Windows.Forms.Label()
         Me.Label70 = New System.Windows.Forms.Label()
         Me.Label71 = New System.Windows.Forms.Label()
         Me.Label72 = New System.Windows.Forms.Label()
@@ -148,13 +145,10 @@ Partial Class Pressure
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label106 = New System.Windows.Forms.Label()
         Me.Label107 = New System.Windows.Forms.Label()
-        Me.Label108 = New System.Windows.Forms.Label()
         Me.Label109 = New System.Windows.Forms.Label()
         Me.Label110 = New System.Windows.Forms.Label()
         Me.Label111 = New System.Windows.Forms.Label()
         Me.Label112 = New System.Windows.Forms.Label()
-        Me.Label113 = New System.Windows.Forms.Label()
-        Me.Label114 = New System.Windows.Forms.Label()
         Me.Label115 = New System.Windows.Forms.Label()
         Me.Label116 = New System.Windows.Forms.Label()
         Me.Label117 = New System.Windows.Forms.Label()
@@ -177,8 +171,6 @@ Partial Class Pressure
         Me.Label93 = New System.Windows.Forms.Label()
         Me.Label94 = New System.Windows.Forms.Label()
         Me.Label95 = New System.Windows.Forms.Label()
-        Me.Label96 = New System.Windows.Forms.Label()
-        Me.Label97 = New System.Windows.Forms.Label()
         Me.Label98 = New System.Windows.Forms.Label()
         Me.Label100 = New System.Windows.Forms.Label()
         Me.Label101 = New System.Windows.Forms.Label()
@@ -194,14 +186,11 @@ Partial Class Pressure
         Me.autotemp = New System.Windows.Forms.CheckBox()
         Me.Label78 = New System.Windows.Forms.Label()
         Me.Label105 = New System.Windows.Forms.Label()
-        Me.Label99 = New System.Windows.Forms.Label()
         Me.Label79 = New System.Windows.Forms.Label()
         Me.Label124 = New System.Windows.Forms.Label()
         Me.Label80 = New System.Windows.Forms.Label()
         Me.Label81 = New System.Windows.Forms.Label()
         Me.Label82 = New System.Windows.Forms.Label()
-        Me.Label83 = New System.Windows.Forms.Label()
-        Me.Label84 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label104 = New System.Windows.Forms.Label()
         Me.Label92 = New System.Windows.Forms.Label()
@@ -278,16 +267,16 @@ Partial Class Pressure
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 8)
+        Me.Button1.Location = New System.Drawing.Point(43, 68)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(145, 76)
+        Me.Button1.Size = New System.Drawing.Size(146, 64)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Рассчитать"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(12, 100)
+        Me.Button2.Location = New System.Drawing.Point(263, 68)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(145, 64)
         Me.Button2.TabIndex = 1
@@ -1065,7 +1054,6 @@ Partial Class Pressure
         Me.Panel4.Controls.Add(Me.Label7)
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Controls.Add(Me.Label9)
-        Me.Panel4.Controls.Add(Me.Label11)
         Me.Panel4.Controls.Add(Me.Label10)
         Me.Panel4.Controls.Add(Me.Label12)
         Me.Panel4.Controls.Add(Me.Label59)
@@ -1114,15 +1102,6 @@ Partial Class Pressure
         Me.Label9.Size = New System.Drawing.Size(33, 13)
         Me.Label9.TabIndex = 1
         Me.Label9.Text = "м ^ 2"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(268, 105)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(39, 13)
-        Me.Label11.TabIndex = 1
-        Me.Label11.Text = "Label7"
         '
         'Label10
         '
@@ -1257,8 +1236,6 @@ Partial Class Pressure
         Me.Panel5.Controls.Add(Me.Label65)
         Me.Panel5.Controls.Add(Me.Label66)
         Me.Panel5.Controls.Add(Me.Label67)
-        Me.Panel5.Controls.Add(Me.Label68)
-        Me.Panel5.Controls.Add(Me.Label69)
         Me.Panel5.Controls.Add(Me.Label70)
         Me.Panel5.Controls.Add(Me.Label71)
         Me.Panel5.Controls.Add(Me.Label72)
@@ -1323,24 +1300,6 @@ Partial Class Pressure
         Me.Label67.Size = New System.Drawing.Size(45, 39)
         Me.Label67.TabIndex = 1
         Me.Label67.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
-        '
-        'Label68
-        '
-        Me.Label68.AutoSize = True
-        Me.Label68.Location = New System.Drawing.Point(268, 108)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(39, 13)
-        Me.Label68.TabIndex = 1
-        Me.Label68.Text = "Label7"
-        '
-        'Label69
-        '
-        Me.Label69.AutoSize = True
-        Me.Label69.Location = New System.Drawing.Point(268, 27)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(39, 13)
-        Me.Label69.TabIndex = 1
-        Me.Label69.Text = "Label7"
         '
         'Label70
         '
@@ -1454,13 +1413,10 @@ Partial Class Pressure
         Me.Panel8.AutoScroll = True
         Me.Panel8.Controls.Add(Me.Label106)
         Me.Panel8.Controls.Add(Me.Label107)
-        Me.Panel8.Controls.Add(Me.Label108)
         Me.Panel8.Controls.Add(Me.Label109)
         Me.Panel8.Controls.Add(Me.Label110)
         Me.Panel8.Controls.Add(Me.Label111)
         Me.Panel8.Controls.Add(Me.Label112)
-        Me.Panel8.Controls.Add(Me.Label113)
-        Me.Panel8.Controls.Add(Me.Label114)
         Me.Panel8.Controls.Add(Me.Label115)
         Me.Panel8.Controls.Add(Me.Label116)
         Me.Panel8.Controls.Add(Me.Label117)
@@ -1503,15 +1459,6 @@ Partial Class Pressure
         Me.Label107.TabIndex = 1
         Me.Label107.Text = "Па*м^3"
         '
-        'Label108
-        '
-        Me.Label108.AutoSize = True
-        Me.Label108.Location = New System.Drawing.Point(268, 438)
-        Me.Label108.Name = "Label108"
-        Me.Label108.Size = New System.Drawing.Size(39, 13)
-        Me.Label108.TabIndex = 1
-        Me.Label108.Text = "Label7"
-        '
         'Label109
         '
         Me.Label109.AutoSize = True
@@ -1547,24 +1494,6 @@ Partial Class Pressure
         Me.Label112.Size = New System.Drawing.Size(45, 39)
         Me.Label112.TabIndex = 1
         Me.Label112.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
-        '
-        'Label113
-        '
-        Me.Label113.AutoSize = True
-        Me.Label113.Location = New System.Drawing.Point(268, 108)
-        Me.Label113.Name = "Label113"
-        Me.Label113.Size = New System.Drawing.Size(39, 13)
-        Me.Label113.TabIndex = 1
-        Me.Label113.Text = "Label7"
-        '
-        'Label114
-        '
-        Me.Label114.AutoSize = True
-        Me.Label114.Location = New System.Drawing.Point(268, 27)
-        Me.Label114.Name = "Label114"
-        Me.Label114.Size = New System.Drawing.Size(39, 13)
-        Me.Label114.TabIndex = 1
-        Me.Label114.Text = "Label7"
         '
         'Label115
         '
@@ -1712,8 +1641,6 @@ Partial Class Pressure
         Me.Panel7.Controls.Add(Me.Label93)
         Me.Panel7.Controls.Add(Me.Label94)
         Me.Panel7.Controls.Add(Me.Label95)
-        Me.Panel7.Controls.Add(Me.Label96)
-        Me.Panel7.Controls.Add(Me.Label97)
         Me.Panel7.Controls.Add(Me.Label98)
         Me.Panel7.Controls.Add(Me.Label100)
         Me.Panel7.Controls.Add(Me.Label101)
@@ -1767,24 +1694,6 @@ Partial Class Pressure
         Me.Label95.Size = New System.Drawing.Size(45, 39)
         Me.Label95.TabIndex = 1
         Me.Label95.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
-        '
-        'Label96
-        '
-        Me.Label96.AutoSize = True
-        Me.Label96.Location = New System.Drawing.Point(268, 108)
-        Me.Label96.Name = "Label96"
-        Me.Label96.Size = New System.Drawing.Size(39, 13)
-        Me.Label96.TabIndex = 1
-        Me.Label96.Text = "Label7"
-        '
-        'Label97
-        '
-        Me.Label97.AutoSize = True
-        Me.Label97.Location = New System.Drawing.Point(268, 27)
-        Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(39, 13)
-        Me.Label97.TabIndex = 1
-        Me.Label97.Text = "Label7"
         '
         'Label98
         '
@@ -1883,14 +1792,11 @@ Partial Class Pressure
         Me.Panel6.Controls.Add(Me.autotemp)
         Me.Panel6.Controls.Add(Me.Label78)
         Me.Panel6.Controls.Add(Me.Label105)
-        Me.Panel6.Controls.Add(Me.Label99)
         Me.Panel6.Controls.Add(Me.Label79)
         Me.Panel6.Controls.Add(Me.Label124)
         Me.Panel6.Controls.Add(Me.Label80)
         Me.Panel6.Controls.Add(Me.Label81)
         Me.Panel6.Controls.Add(Me.Label82)
-        Me.Panel6.Controls.Add(Me.Label83)
-        Me.Panel6.Controls.Add(Me.Label84)
         Me.Panel6.Controls.Add(Me.Label85)
         Me.Panel6.Controls.Add(Me.Label104)
         Me.Panel6.Controls.Add(Me.Label92)
@@ -1945,15 +1851,6 @@ Partial Class Pressure
         Me.Label105.TabIndex = 1
         Me.Label105.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
         '
-        'Label99
-        '
-        Me.Label99.AutoSize = True
-        Me.Label99.Location = New System.Drawing.Point(268, 471)
-        Me.Label99.Name = "Label99"
-        Me.Label99.Size = New System.Drawing.Size(39, 13)
-        Me.Label99.TabIndex = 1
-        Me.Label99.Text = "Label7"
-        '
         'Label79
         '
         Me.Label79.AutoSize = True
@@ -1998,24 +1895,6 @@ Partial Class Pressure
         Me.Label82.Size = New System.Drawing.Size(45, 39)
         Me.Label82.TabIndex = 1
         Me.Label82.Text = "Па*м^3" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "с*м^3"
-        '
-        'Label83
-        '
-        Me.Label83.AutoSize = True
-        Me.Label83.Location = New System.Drawing.Point(268, 108)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(39, 13)
-        Me.Label83.TabIndex = 1
-        Me.Label83.Text = "Label7"
-        '
-        'Label84
-        '
-        Me.Label84.AutoSize = True
-        Me.Label84.Location = New System.Drawing.Point(268, 27)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(39, 13)
-        Me.Label84.TabIndex = 1
-        Me.Label84.Text = "Label7"
         '
         'Label85
         '
@@ -2458,7 +2337,7 @@ Partial Class Pressure
         Me.MaximumSize = New System.Drawing.Size(800, 600)
         Me.MinimumSize = New System.Drawing.Size(800, 600)
         Me.Name = "Pressure"
-        Me.Text = "Form1"
+        Me.Text = "Расчет давления"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -2585,8 +2464,6 @@ Partial Class Pressure
     Friend WithEvents Label65 As Label
     Friend WithEvents Label66 As Label
     Friend WithEvents Label67 As Label
-    Friend WithEvents Label68 As Label
-    Friend WithEvents Label69 As Label
     Friend WithEvents Label70 As Label
     Friend WithEvents Label71 As Label
     Friend WithEvents Label72 As Label
@@ -2603,7 +2480,6 @@ Partial Class Pressure
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label59 As Label
     Friend WithEvents Label60 As Label
@@ -2620,13 +2496,10 @@ Partial Class Pressure
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Label106 As Label
     Friend WithEvents Label107 As Label
-    Friend WithEvents Label108 As Label
     Friend WithEvents Label109 As Label
     Friend WithEvents Label110 As Label
     Friend WithEvents Label111 As Label
     Friend WithEvents Label112 As Label
-    Friend WithEvents Label113 As Label
-    Friend WithEvents Label114 As Label
     Friend WithEvents Label115 As Label
     Friend WithEvents Label116 As Label
     Friend WithEvents Label117 As Label
@@ -2648,8 +2521,6 @@ Partial Class Pressure
     Friend WithEvents Label93 As Label
     Friend WithEvents Label94 As Label
     Friend WithEvents Label95 As Label
-    Friend WithEvents Label96 As Label
-    Friend WithEvents Label97 As Label
     Friend WithEvents Label98 As Label
     Friend WithEvents Label100 As Label
     Friend WithEvents Label101 As Label
@@ -2663,13 +2534,10 @@ Partial Class Pressure
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label78 As Label
     Friend WithEvents Label105 As Label
-    Friend WithEvents Label99 As Label
     Friend WithEvents Label79 As Label
     Friend WithEvents Label80 As Label
     Friend WithEvents Label81 As Label
     Friend WithEvents Label82 As Label
-    Friend WithEvents Label83 As Label
-    Friend WithEvents Label84 As Label
     Friend WithEvents Label85 As Label
     Friend WithEvents Label104 As Label
     Friend WithEvents Label92 As Label

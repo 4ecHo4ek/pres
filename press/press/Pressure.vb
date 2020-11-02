@@ -40,6 +40,7 @@
             ProgressBar1.Value = 2
             SetRightParams()
             pressure = cearchPart.Calculatings()
+            ComboBox1.Text = "Можно сохранять"
         Catch
             file.WriteLogs("ошибка выполнения программы")
             Exit Sub
@@ -80,6 +81,7 @@
         f1.ProgressBar1.Value = 10
 
         ComboBox1.Items.AddRange(IO.File.ReadAllLines("pressSaving.txt"))
+
         ReadLogs()
     End Sub
 
@@ -89,6 +91,7 @@
             Button2.Enabled = False
             ComboBox3.Enabled = True
             Button3.Enabled = False
+            ComboBox1.Text = "Нечего сохранять"
         Else
             Button2.Enabled = True
             ComboBox3.Enabled = False
@@ -97,6 +100,7 @@
         If EndGraphTimeTF.Text > tEndTF.Text Then
             EndGraphTimeTF.Text = tEndTF.Text
         End If
+
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
