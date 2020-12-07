@@ -34,7 +34,6 @@
         exl.range("C1").value = "давление, Па."
         WriteInExcel(exl, pressure, settings)
 
-        Application.Exit()
     End Function
 
     Function WriteInExcel(ByVal exl As Object, ByVal pressure As PressureParams, ByVal settings As ExcelSaving)

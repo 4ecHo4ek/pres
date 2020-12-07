@@ -367,8 +367,8 @@
         Return tmp
     End Function
 
-    Function SetQStatic(ByVal tmp As TmpParam, ByVal k As Decimal) As TmpParam
-        tmp.k = k
+    Function SetQStatic(ByVal tmp As TmpParam, ByVal q As Decimal) As TmpParam
+        tmp.q = q
         Return tmp
     End Function
 
